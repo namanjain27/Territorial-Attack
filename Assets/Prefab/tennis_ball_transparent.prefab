@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7669148509871104471}
   - component: {fileID: 7400624688522732736}
   - component: {fileID: 2736709823458981540}
+  - component: {fileID: -4667813260238685265}
   m_Layer: 0
   m_Name: tennis_ball_transparent
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7523926872645027861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -286,3 +287,15 @@ PolygonCollider2D:
       - {x: -0.34, y: -4.25}
       - {x: -0.22, y: -4.24}
       - {x: -0.12, y: -4.23}
+--- !u!114 &-4667813260238685265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7523926872645027861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1031ec371a62c714498d5ae21f85cdf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

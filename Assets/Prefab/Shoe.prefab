@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 960499511940271057}
   - component: {fileID: 704816557081699788}
   - component: {fileID: 1020819650247134136}
+  - component: {fileID: 7541225491333029824}
   m_Layer: 0
   m_Name: Shoe
   m_TagString: Untagged
@@ -203,3 +204,15 @@ PolygonCollider2D:
       - {x: 1.68, y: -1.525}
       - {x: 1.87, y: -1.505}
       - {x: 2.18, y: -1.4649999}
+--- !u!114 &7541225491333029824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425553386442553492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1031ec371a62c714498d5ae21f85cdf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

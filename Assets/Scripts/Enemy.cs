@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-	private int maxHealth = 200;
+	private int maxHealth = 100;
 	private int currentHealth;
 	public GameObject hero;
 	public GameObject stone1;
@@ -25,15 +25,16 @@ public class Player : MonoBehaviour
 		healthBar.SetMaxHealth(maxHealth);
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
+		Debug.Log("OnCollisionEnter2D");
 		m_collided = true;
-		if (collision.gameObject == stone1) bool1 = true;
-		else if (collision.gameObject == stone2) bool2 = true;
-		else if (collision.gameObject == stone3) bool3 = true;
+			if (collision.gameObject == stone1) bool1 = true;
+			else if (collision.gameObject == stone2) bool2 = true;
+			else if (collision.gameObject == stone3) bool3 = true;
 	}
 
-	void DestroyGameObject()
+    void DestroyGameObject()
 	{
 		Destroy(gameObject);
 	}

@@ -15,7 +15,14 @@ public class DisableEnable : MonoBehaviour
     public bool appears3 = false;
 
     //disappearing each object in starting
-    private void Start()
+     void Start()
+    {
+        Object1.SetActive(false);
+        Object2.SetActive(false);
+        Object3.SetActive(false);
+    }
+
+    public void disappear()
     {
         Object1.SetActive(false);
         Object2.SetActive(false);

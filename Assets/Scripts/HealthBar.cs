@@ -25,6 +25,11 @@ public class HealthBar : MonoBehaviour
 		ChangeColor(slider.value);
 	}
 
+	public void Damage(int k)
+    {
+		slider.value -= k;
+    }
+
 	public void ChangeColor(float sliderValue)
     {
 		if(sliderValue<75 && sliderValue >= 50)
