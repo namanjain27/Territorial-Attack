@@ -1969,9 +1969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f11cc9d1ebed445906c9a18dbfc3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stone1: {fileID: 4270012750021427429, guid: 66f698a6211fe9b4882222075321d628, type: 3}
-  Stone2: {fileID: 3011549004410266755, guid: 16c1d6a5fd47bdd4985e2d5d24cbab20, type: 3}
-  Stone3: {fileID: 9057200605879953652, guid: f25f02af964227a45b624b81e85fd2d2, type: 3}
+  Stone1: {fileID: 1099091074001910814, guid: 3702fa283b1510e47a50a94606988aad, type: 3}
+  Stone2: {fileID: 658006034996980400, guid: df5865f83373d0541bc677d813227982, type: 3}
+  Stone3: {fileID: 2572607105382205931, guid: 67585de52062976468e35dfe5500bca5, type: 3}
   LaunchForce: 0
 --- !u!23 &733101628
 MeshRenderer:
@@ -3620,7 +3620,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 0.755
   m_WholeNumbers: 0
-  m_Value: 0.755
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4099,7 +4099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586938608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.62, y: -0.48, z: 0}
+  m_LocalPosition: {x: 6.11, y: 0.9, z: 0}
   m_LocalScale: {x: 2.381, y: 1.682, z: 1}
   m_Children: []
   m_Father: {fileID: 1917758995}
@@ -5156,8 +5156,8 @@ MonoBehaviour:
   launchsite: {fileID: 1586938609}
   delay: 3
   range: 0
-  time: 5
-  gravityy: 2
+  time: 1
+  gravityy: -10
 --- !u!1 &1922651041
 GameObject:
   m_ObjectHideFlags: 0
