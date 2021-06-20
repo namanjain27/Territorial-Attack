@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
-    public GameObject Stone;
-    private float LaunchForce;
-    // Start is called before the first frame update
+    public GameObject Stone1;
+    public GameObject Stone2;
+    public GameObject Stone3;
+
+    public float LaunchForce;
+
     // Update is called once per frame
     public void AdjustForce(float newforce)
     {
@@ -18,14 +21,30 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            Shooting();
+            if (GameObject.Find("Character1").GetComponent<DisableEnable>().appears1)
+            {             
+                Shooting(Stone1);
+
+            }
+            else if (GameObject.Find("Character1").GetComponent<DisableEnable>().appears2)
+            {                
+                Shooting(Stone2);
+            }    
+               
+            else if (GameObject.Find("Character1").GetComponent<DisableEnable>().appears3)
+            {
+                Shooting(Stone3);
+ 
+            }   
+                
         }
     }
 
-     void Shooting()
+    void Shooting(GameObject other)
     {
-        GameObject Stoneclone = Instantiate(Stone, transform.position, transform.rotation);
+        GameObject Stoneclone = Instantiate(other, transform.position, transform.rotation);
 
         Stoneclone.GetComponent<Rigidbody2D>().AddForce(transform.right * LaunchForce);
+        GameObject.Find("Character1").GetComponent<DisableEnable>().Disappear();
     }
 }

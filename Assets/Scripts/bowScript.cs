@@ -17,7 +17,7 @@ public class bowScript : MonoBehaviour
     {
         Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (MousePos - transform.position).normalized;
-        if(Input.GetAxis("Jump")!=0)  FaceMouse();
+        if(Input.GetAxis("Vertical")!=0)  FaceMouse();
     }
 
     void FaceMouse()

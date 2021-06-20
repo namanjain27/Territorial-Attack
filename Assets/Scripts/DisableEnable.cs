@@ -9,10 +9,19 @@ public class DisableEnable : MonoBehaviour
     public GameObject Object2;
     public GameObject Object3;
 
+    private int count1 = 0;
+    private int count2 = 0;
+    private int count3 = 0;
+
+
     //the bools corresponding to each object depicting it's appearence/disappearence
     public bool appears1=false;
     public bool appears2 = false;
     public bool appears3 = false;
+
+    public Destroy destroy1;
+    public Destroy destroy2;
+    public Destroy destroy3;
 
     //disappearing each object in starting
     private void Start()
@@ -22,7 +31,18 @@ public class DisableEnable : MonoBehaviour
         Object3.SetActive(false);
     }
 
-    public void Inactive1()
+    public void Disappear()
+    {
+        Object1.SetActive(false);
+        Object2.SetActive(false);
+        Object3.SetActive(false);
+          appears1 = false;
+         appears2 = false;
+      appears3 = false;
+
+}
+
+public void Inactive1()
     {
         if (!appears1)   //check if object1 is already present
         {
@@ -83,6 +103,8 @@ public class DisableEnable : MonoBehaviour
 
             }
         }
+        if (appears1) count1++;
+        if (count1 > 2) destroy1.DestroyGameObject();
     }
 
     public void Inactive2()
@@ -146,6 +168,8 @@ public class DisableEnable : MonoBehaviour
 
             }
         }
+        if (appears2) count2++;
+        if (count2 > 1) destroy2.DestroyGameObject();
     }
 
     public void Inactive3()
@@ -209,5 +233,7 @@ public class DisableEnable : MonoBehaviour
 
             }
         }
+        if (appears3) count3++;
+        if (count3 > 0) destroy3.DestroyGameObject();
     }
 }

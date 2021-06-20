@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
 
 	public int maxHealth = 100;
@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
 	public HealthBar healthBar;
 
-	public Triggered triggered;
+	public Collided collided;
 
 	public void Damage(int damage)
 	{
@@ -26,29 +26,34 @@ public class Player : MonoBehaviour
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 	}
-	void DestroyObject()
-    {
-		Destroy(hero);
-    }
 
-    // Update is called once per frame
-    void Update()
+
+	void DestroyObject()
 	{
-		if (triggered.bool1)
-        {
-			Damage(10);
-        }
-		else if (triggered.bool1)
+		Destroy(hero);
+	}
+
+	// Update is called once per frame
+	void FixedUpdate()
+	{
+		if (collided.bool1)
 		{
+			collided.bool1 = false;
+			Damage(10);
+		}
+		else if (collided.bool2)
+		{
+			collided.bool2 = false;
 			Damage(20);
 		}
-		else if (triggered.bool1)
+		else if (collided.bool3)
 		{
+			collided.bool3 = false;
 			Damage(40);
 		}
-		if (currentHealth == 0)
-        {
+		if (currentHealth <= 0)
+		{
 			DestroyObject();
-        }
+		}
 	}
 }
