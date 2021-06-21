@@ -26,29 +26,23 @@ public class Player : MonoBehaviour
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 	}
-	void DestroyObject()
-    {
-		Destroy(hero);
-    }
 
-    // Update is called once per frame
-    void Update()
+
+	void DestroyObject()
 	{
-		if (triggered.bool1)
+		Destroy(hero);
+	}
+
+	// Update is called once per frame
+	void FixedUpdate()
+	{
+        if (triggered.bool1)
         {
-			Damage(10);
-        }
-		else if (triggered.bool1)
-		{
 			Damage(20);
-		}
-		else if (triggered.bool1)
-		{
-			Damage(40);
-		}
-		if (currentHealth == 0)
-        {
-			DestroyObject();
         }
+		if (currentHealth <= 0)
+		{
+			DestroyObject();
+		}
 	}
 }
