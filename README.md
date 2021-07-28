@@ -1,7 +1,7 @@
 # Territorial-Attack
 go to master branch to see the files of the game - https://github.com/namanjain27/Territorial-Attack
-
-project submission links by Naman Jain:
+Naman Jain's
+project submission links:
 
 a. video of 1st week JohnLemon - https://drive.google.com/file/d/1YL1RKKupFPnLpx-146gwM63FkAJOcyGf/view?usp=sharing
 
@@ -9,7 +9,7 @@ b. github link for JohnLemon repo - https://github.com/namanjain27/evaluation-1
 
 c. Design Doc link - https://docs.google.com/document/d/1_MS-n5uqsBxe1bGxIpY1_5wUywnfKccDKA1F0Ld_Y9g/edit?usp=sharing
 
-d. Drive link to the apk file of our build - 
+d. Drive link to the apk file of our build - https://drive.google.com/file/d/1GT9G8BTKLauyGrfFOgCvIMMMN5mMl3Qb/view?usp=drivesdk
 
 e. demo video of the game - 
 
