@@ -12,7 +12,7 @@ c. Design Doc link - https://docs.google.com/document/d/1_MS-n5uqsBxe1bGxIpY1_5w
 
 d. Drive link to the apk file of our build - https://drive.google.com/file/d/1GT9G8BTKLauyGrfFOgCvIMMMN5mMl3Qb/view?usp=drivesdk
 
-e. demo video of the game - 
+e. demo video of the game - https://drive.google.com/file/d/11KZQMoV1orOsES4EMlep6qn_97mbR2HF/view?usp=sharing
 
 f. Work done by me in making the game includes programming and integrating different files in unity to build the levels. I have worked in initial phase of shooting scripts, making the tutorial, transition of different scenes, hit counter, shield, lever animation, game over and win scenes, working with differnt UI buttons and texts and sounds, helped finding and resolving bugs in the game. We used to divide several tasks in a week and work upon those tasks, then collaborate with each other. 
 
