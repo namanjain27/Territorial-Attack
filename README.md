@@ -43,4 +43,4 @@ Details of all the work done by me in the Game:- Basic designing part (done on b
                                                  
                                                  Helped in bug finding and bug fixing related to game objects.
                                                  
-                                                 Gathered the feedback and opinions for further improvement in the game during the testing phase.
+                                                 Gathered the feedback and opinions for further improvement during the testing phase.
