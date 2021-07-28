@@ -21,15 +21,26 @@ Drive Link of my team's design doc (same for all the members of a team):- https:
 
 Drive Link/Build for your Endterm Game(same for all members of a team):- https://drive.google.com/file/d/1GT9G8BTKLauyGrfFOgCvIMMMN5mMl3Qb/view?usp=drivesdk
 
-Details of all the work done by me in the Game:- a) Basic designing part (done on blender, unity and photoshop)
+Details of all the work done by me in the Game:- a) Basic designing part of the sprites (done on blender and photoshop)
+                                                 
                                                  b) Designing of game objects namely:-
+                                                 
                                                  1) Paper ball
+                                                 
                                                  2) Tennis ball 
+                                                 
                                                  3) Stone
+                                                 
                                                  4) Castle
+                                                 
                                                  5) Lever at 13 different angles (0,15,30,45,60,75,90,105,120,135,150,165,180 degrees)
+                                                 
                                                  c) The type of powerups to be used for our player
+                                                 
                                                  d) Debugging and final scaling for the levels 9, 10, 11, 12.
+                                                 
                                                  e) Way for conversion from PC to the android and ios platforms 
+                                                 
                                                  f) Helped in bug finding and bug fixing related to game objects.
+                                                 
                                                  g) Gathered the feedback and opinions for further improvement during the testing phase.
