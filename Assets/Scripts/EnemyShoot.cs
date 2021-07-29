@@ -37,7 +37,7 @@ public class EnemyShoot : MonoBehaviour
     void Update()
 
     {
-            delay = Random.Range(1,4);
+            delay = Random.Range(3,5);
             random = Random.Range(0, 100);      //selcting random number 
             for (int i = 0; i < 3; i++)
             {                                   //selecting projectile to throw 

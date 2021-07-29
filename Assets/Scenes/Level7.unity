@@ -32348,7 +32348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1377858509}
   Trigger: {fileID: 1377858507}
-  shield_timer: 5
+  shield_timer: 7
   shield: {fileID: 1359465414}
   spr_shield: {fileID: 1426690769}
   time: 0

@@ -55,82 +55,85 @@ public class DisableEnable : MonoBehaviour
     public void Update()
     {
         random = Random.Range(0, 1);
-        if (shoot.count1 == ball)
+        if (HammerButton.activeSelf) Disappear(false, 1);
+        else
         {
-            TennisBall.SetActive(false);
-            Projectile[0].SetActive(false);
-            active[0] = false;
-            if (end1 == 0)
+            if (shoot.count1 == ball)
             {
-                if (shoot.count2 < shoe && shoot.count3 < stone)
+                TennisBall.SetActive(false);
+                Projectile[0].SetActive(false);
+                active[0] = false;
+                if (end1 == 0)
                 {
-                    if (random < 0.5) Disappear(true, 1);
-                    else Disappear(true, 2);
-                    end1++;
+                    if (shoot.count2 < shoe && shoot.count3 < stone)
+                    {
+                        if (random < 0.5) Disappear(true, 1);
+                        else Disappear(true, 2);
+                        end1++;
+                    }
+                    else if (shoot.count2 >= shoe && shoot.count3 < stone)
+                    {
+                        Disappear(true, 2);
+                        end1++;
+                    }
+                    else if (shoot.count2 < shoe && shoot.count3 >= stone)
+                    {
+                        Disappear(true, 1);
+                        end1++;
+                    }
                 }
-                else if (shoot.count2 >= shoe && shoot.count3 < stone)
+            }
+            if (shoot.count2 == shoe)
+            {
+                shoes.SetActive(false);
+                Projectile[1].SetActive(false);
+                active[1] = false;
+                if (end2 == 0)
                 {
-                    Disappear(true, 2);
-                    end1++;
+                    if (shoot.count1 < ball && shoot.count3 < stone)
+                    {
+                        if (random < 0.5) Disappear(true, 0);
+                        else Disappear(true, 2);
+                        end2++;
+                    }
+                    else if (shoot.count1 >= ball && shoot.count3 < stone)
+                    {
+                        Disappear(true, 2);
+                        end2++;
+                    }
+                    else if (shoot.count1 < ball && shoot.count3 >= stone)
+                    {
+                        Disappear(true, 0);
+                        end2++;
+                    }
                 }
-                else if (shoot.count2 < shoe && shoot.count3 >= stone)
+            }
+            if (shoot.count3 == stone)
+            {
+                stones.SetActive(false);
+                Projectile[2].SetActive(false);
+                active[2] = false;
+                if (end3 == 0)
                 {
-                    Disappear(true, 1);
-                    end1++;
+                    if (shoot.count2 < shoe && shoot.count1 < ball)
+                    {
+                        if (random < 0.5) Disappear(true, 1);
+                        else Disappear(true, 0);
+                        end3++;
+                    }
+                    else if (shoot.count2 >= shoe && shoot.count1 < ball)
+                    {
+                        Disappear(true, 0);
+                        end3++;
+                    }
+                    else if (shoot.count2 < shoe && shoot.count1 >= ball)
+                    {
+                        Disappear(true, 1);
+                        end3++;
+                    }
                 }
             }
         }
-        if (shoot.count2 == shoe)
-        {
-            shoes.SetActive(false);
-            Projectile[1].SetActive(false);
-            active[1] = false;
-            if (end2 == 0)
-            {
-                if (shoot.count1 < ball && shoot.count3 < stone)
-                {
-                    if (random < 0.5) Disappear(true, 0);
-                    else Disappear(true, 2);
-                    end2++;
-                }
-                else if (shoot.count1 >= ball && shoot.count3 < stone)
-                {
-                    Disappear(true, 2);
-                    end2++;
-                }
-                else if (shoot.count1 < ball && shoot.count3 >= stone)
-                {
-                    Disappear(true, 0);
-                    end2++;
-                }
-            }
-        }
-        if (shoot.count3 == stone)
-        {
-            stones.SetActive(false);
-            Projectile[2].SetActive(false);
-            active[2] = false;
-            if (end3 == 0)
-            {
-                if (shoot.count2 < shoe && shoot.count1 < ball)
-                {
-                    if (random < 0.5) Disappear(true, 1);
-                    else Disappear(true, 0);
-                    end3++;
-                }
-                else if (shoot.count2 >= shoe && shoot.count1 < ball)
-                {
-                    Disappear(true, 0);
-                    end3++;
-                }
-                else if (shoot.count2 < shoe && shoot.count1 >= ball)
-                {
-                    Disappear(true, 1);
-                    end3++;
-                }
-            }
-        }
-
     }
     public void Inactive1()
     {

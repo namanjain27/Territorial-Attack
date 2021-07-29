@@ -20,7 +20,7 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
-        secondsLeft = Random.Range(10,15);
+        secondsLeft = Random.Range(13,17);
         text.GetComponent<Text>().text = "00:" + secondsLeft;
         for(i=0;i<number;i++)
         {
