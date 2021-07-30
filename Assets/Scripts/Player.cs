@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
 			isHit = true;
 			m_Animator.SetBool("IsHit", isHit);
 			HitAudio.Play();
-			Damage(20);
+			Damage(trigger.i*10);
 			trigger.i = 0;
 		}
 		if (currentHealth <= 0)

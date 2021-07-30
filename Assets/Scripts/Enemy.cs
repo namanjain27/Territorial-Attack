@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 
 	public float maxHealth = 100;
 	public float currentHealth;
-	public float thundertime;
+	public float thundertime=1;
 	public bool isHit = false;
 	float count;
 	public GameObject hero;
