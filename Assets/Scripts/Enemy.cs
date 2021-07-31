@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour
 			isDied = true;
 			m_Animator.SetBool("HasDied", isDied);
 			hero.SetActive(false);
+			collided.i = 0;
 		}
 		m_Animator.SetBool("IsHit", isHit);
 	}
