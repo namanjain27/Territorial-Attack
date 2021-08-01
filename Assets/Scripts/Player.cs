@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class Player : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class Player : MonoBehaviour
 	public float maxHealth = 100;
 	public float currentHealth;
 
+	public int presentScene;
+
 	public GameObject Hit;
 	public GameObject slider;
 	public GameObject shoot;
 
+	public GameObject ProjectileButton;
 
 	public int enemyCount = 0;
 
@@ -61,14 +65,13 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		presentScene = SceneManager.GetActiveScene().buildIndex;
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 		GameOverImage.SetActive(false);
 		NextLevelImage.SetActive(false);
 		m_Animator = GetComponent<Animator>();
 		hits_clone = GameObject.FindGameObjectsWithTag("Enemy");
-
 	}
 
 	void DestroyEnemy()
@@ -80,11 +83,18 @@ public class Player : MonoBehaviour
 		MainAudio.Stop();
 		GameWinAudio.GetComponent<AudioSource>().enabled = true;
 		gameObject.SetActive(false);
+		ProjectileButton.SetActive(false);
+		WinLevel();
 		NextLevelImage.SetActive(true);
 		gameObject.GetComponent<Player>().enabled = false;
 		trigger.enabled = false;
 	}
 
+	public void WinLevel()
+    {
+		if (presentScene == 1) return;
+		PlayerPrefs.SetInt("levelReached", presentScene);
+    }
 	public void DestroyObject()
 	{
 		gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -99,6 +109,7 @@ public class Player : MonoBehaviour
 		{
 			hits_clone[k].SetActive(false);
 		}
+		ProjectileButton.SetActive(false);
 		GameOverImage.SetActive(true);
 		gameObject.GetComponent<Player>().enabled = false;
 		Pause.SetActive(false);
@@ -128,7 +139,7 @@ public class Player : MonoBehaviour
 			isHit = true;
 			m_Animator.SetBool("IsHit", isHit);
 			HitAudio.Play();
-			Damage(20);
+			Damage(trigger.i*10);
 			trigger.i = 0;
 		}
 		if (currentHealth <= 0)

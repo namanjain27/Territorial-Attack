@@ -18,6 +18,8 @@ public class Shoot : MonoBehaviour
 
     public float WindEffect;
 
+    public GameObject Ground;
+
     public int count1 = 0;
     public int count2 = 0;
     public int count3 = 0;
@@ -47,6 +49,7 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         m_Animator = GameObject.Find("Player").GetComponent<Animator>();
+        Ground = GameObject.FindGameObjectWithTag("Ground");
     }
     // Update is called once per frame
     /*public void AdjustForce(float newforce)

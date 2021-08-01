@@ -53,11 +53,14 @@ public class PowerupController : MonoBehaviour
     public void HealthPotionAudio()
     {
         hammer.GetComponent<AudioSource>().volume = 0f;
+        healthPotion.GetComponent<AudioSource>().enabled = true;
         healthPotion.GetComponent<AudioSource>().volume = 0.5f;
     }
 
     public void ShieldAudio()
     {
-       shield.GetComponent<AudioSource>().volume = 0.5f;
+        hammer.GetComponent<AudioSource>().volume = 0f;
+        shield.GetComponent<AudioSource>().enabled = true;
+        shield.GetComponent<AudioSource>().volume = 0.5f;
     }
 }

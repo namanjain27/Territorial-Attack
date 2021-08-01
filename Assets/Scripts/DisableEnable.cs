@@ -12,6 +12,8 @@ public class DisableEnable : MonoBehaviour
     public int shoe=2;
     public int stone=2;
 
+    public float delay = 2f;
+
     public Shoot shoot;
 
     public bool activated=false;
@@ -24,16 +26,17 @@ public class DisableEnable : MonoBehaviour
     public GameObject stones;
     public GameObject shoes;
 
+    public Player GameEnd;
+
     int end1=0, end2=0, end3=0;
     float random;
     //disappearing each object in starting
-    private void Start()
+    public void Start()
     {
         for(int i=0;i<3;i++)
         {
             Projectile[i].SetActive(false);
         }
-
     }
 
     public void Disappear(bool activated,int i)
@@ -133,6 +136,11 @@ public class DisableEnable : MonoBehaviour
                     }
                 }
             }
+        }
+        if (shoot.count1 >= ball && shoot.count2 >= shoe && shoot.count3 >= stone)
+        {
+            delay -= Time.deltaTime;
+            if (delay < 0) GameEnd.DestroyObject(); 
         }
     }
     public void Inactive1()

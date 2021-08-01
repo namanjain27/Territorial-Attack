@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4583168660549336109}
   m_Layer: 0
   m_Name: Enemy_stone
-  m_TagString: Collider
+  m_TagString: Player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2292690534933763942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6806, y: -0.5095, z: 0}
-  m_LocalScale: {x: 0.48072925, y: 0.48071986, z: 0.26360315}
+  m_LocalPosition: {x: 0.5248, y: -0.4218, z: 0}
+  m_LocalScale: {x: 0.43390623, y: 0.43389773, z: 0.2379282}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

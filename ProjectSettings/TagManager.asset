@@ -16,6 +16,11 @@ TagManager:
   - Hammer
   - Powerups
   - Enemy
+  - Player1
+  - Player2
+  - Player3
+  - LevelLoaderButton
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
