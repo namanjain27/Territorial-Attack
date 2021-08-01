@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DestroyPlayerProjectile : MonoBehaviour
 {
-
     //to check collision
     private void OnCollisionEnter2D(Collision2D collision)
     {

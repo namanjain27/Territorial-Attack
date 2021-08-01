@@ -20,7 +20,9 @@ public class EnemyShoot : MonoBehaviour
     public float time = 1f;
     public float gravityy = 5f;
     public float height;
-    public float timer = 8f;
+    public float timer = 6f;
+    public float delayStart = 2;
+    public float delayEnd = 4;
     float velocityX;
     float velocityY;
 
@@ -37,7 +39,7 @@ public class EnemyShoot : MonoBehaviour
     void Update()
 
     {
-            delay = Random.Range(3,5);
+            delay = Random.Range(delayStart,delayEnd);
             random = Random.Range(0, 100);      //selcting random number 
             for (int i = 0; i < 3; i++)
             {                                   //selecting projectile to throw 

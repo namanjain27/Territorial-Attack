@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 
 	public float maxHealth = 100;
 	public float currentHealth;
-	public float thundertime;
+	public float thundertime=1;
 	public bool isHit = false;
 	float count;
 	public GameObject hero;
@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour
 			isDied = true;
 			m_Animator.SetBool("HasDied", isDied);
 			hero.SetActive(false);
+			collided.i = 0;
 		}
 		m_Animator.SetBool("IsHit", isHit);
 	}
