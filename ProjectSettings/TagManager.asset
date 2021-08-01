@@ -21,6 +21,7 @@ TagManager:
   - Player3
   - LevelLoaderButton
   - LevelLoader
+  - ExitPrompt
   layers:
   - Default
   - TransparentFX
