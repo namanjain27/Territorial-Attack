@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 public class Player : MonoBehaviour
 {
@@ -44,7 +45,10 @@ public class Player : MonoBehaviour
 	public AudioSource MainAudio;
 	public GameObject GameOverAudio;
 	public GameObject GameWinAudio;
-	
+	public GameObject MainPlayer;
+	private int remainingProjectiles;
+	private int LevelScore;
+
 	Animator m_Animator;
 	
 	public void Damage(float damage)
@@ -72,6 +76,7 @@ public class Player : MonoBehaviour
 		NextLevelImage.SetActive(false);
 		m_Animator = GetComponent<Animator>();
 		hits_clone = GameObject.FindGameObjectsWithTag("Enemy");
+		MainPlayer = GameObject.FindGameObjectWithTag("Target");
 	}
 
 	void DestroyEnemy()
@@ -93,8 +98,139 @@ public class Player : MonoBehaviour
 	public void WinLevel()
     {
 		if (presentScene == 1) return;
+		remainingProjectiles = MainPlayer.GetComponent<DisableEnable>().ball + MainPlayer.GetComponent<DisableEnable>().shoe + MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1 - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3 - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2;
+		LevelScore = remainingProjectiles * 100;
+		NextLevelImage.transform.GetChild(3).gameObject.GetComponent<Text>().text = "LevelScore-" + LevelScore;
+        if (presentScene == 2)
+        {
+			if (PlayerPrefs.GetInt("highScore1") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore1", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore1"))
+			{
+				int coins = PlayerPrefs.GetInt("totalCoins") + ( LevelScore - PlayerPrefs.GetInt("highScore1"))/100;
+				PlayerPrefs.SetInt("highScore1", LevelScore);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore1").ToString();
+		}
+		else if (presentScene == 3 )
+		{
+			if (PlayerPrefs.GetInt("highScore2") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore2", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore  / 100);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore2"))
+			{
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore2")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+				PlayerPrefs.SetInt("highScore2", LevelScore);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore2").ToString();
+		}
+		else if (presentScene == 4)
+		{
+			if (PlayerPrefs.GetInt("highScore3") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore3", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore  / 100);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore3"))
+			{
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore3")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+				PlayerPrefs.SetInt("highScore3", LevelScore);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore3").ToString();
+		}
+		else if (presentScene == 5)
+		{
+			if (PlayerPrefs.GetInt("highScore4") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore4", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore  / 100);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore4"))
+			{
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore4")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+				PlayerPrefs.SetInt("highScore4", LevelScore);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore4").ToString();
+		}
+		else if (presentScene == 6)
+        {
+			if (PlayerPrefs.GetInt("highScore5") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore5", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore5"))
+			{
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore5")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+				PlayerPrefs.SetInt("highScore5", LevelScore);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore5").ToString();
+		}
+		else if (presentScene == 7)
+		{
+			if (PlayerPrefs.GetInt("highScore6") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore6", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore6"))
+			{
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore6")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+				PlayerPrefs.SetInt("highScore6", LevelScore);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore6").ToString();
+		}
+		else if (presentScene == 8) 
+		{
+			if (PlayerPrefs.GetInt("highScore7") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore7", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore7"))
+			{
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore7")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+				PlayerPrefs.SetInt("highScore7", LevelScore);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore7").ToString();
+		}
+		/*else if (presentScene == 9)
+		{
+			if (PlayerPrefs.GetInt("highScore8") <= 0)
+			{
+				PlayerPrefs.SetInt("highScore8", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore8")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			else if (LevelScore > PlayerPrefs.GetInt("highScore8"))
+			{
+				PlayerPrefs.SetInt("highScore8", LevelScore);
+				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore8")) / 100;
+				PlayerPrefs.SetInt("totalCoins", coins);
+			}
+			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore8").ToString();
+		}*/
 		PlayerPrefs.SetInt("levelReached", presentScene);
-    }
+	}
 	public void DestroyObject()
 	{
 		gameObject.GetComponent<SpriteRenderer>().enabled = false;
