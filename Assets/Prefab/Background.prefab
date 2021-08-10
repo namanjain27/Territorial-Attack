@@ -749,7 +749,6 @@ GameObject:
   - component: {fileID: 5499615235493483301}
   - component: {fileID: 5499615235493483322}
   - component: {fileID: 5499615235493483323}
-  - component: {fileID: 5499615235493483320}
   m_Layer: 0
   m_Name: Background
   m_TagString: Ground
@@ -877,22 +876,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &5499615235493483320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5499615235493483303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95f79edc8dd238042bf36670b928550b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  i: 0
-  HitCount: 0
-  enemythunder: {fileID: 0}
-  Costs: {fileID: 5499615235493483322}
 --- !u!1 &5499615235636158246
 GameObject:
   m_ObjectHideFlags: 0

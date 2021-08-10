@@ -36,7 +36,7 @@ public class ShareOption : MonoBehaviour
 	{
 		var shareSubject = "The Best Game I have seen\n";
 
-		var shareMessage = "Just PLAY it , it's my promise you will love it \n Get the Territorial Attack app from the link below.Cheers\n\n" +
+		var shareMessage = "Install the Territorial Attack game from the link below. It's my promise you will love it. Cheers\n\n" +
 
 						   "https://drive.google.com/drive/folders/1U5plbo2JQF3prwwDAlR467cDSdGodlzs?usp=sharing";
 

@@ -38088,6 +38088,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6386738673765507607, guid: be158897fafab7d4c9949b181c236447, type: 3}
   m_PrefabInstance: {fileID: 1609442802}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1609442804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7385558553861755100, guid: be158897fafab7d4c9949b181c236447, type: 3}
+  m_PrefabInstance: {fileID: 1609442802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1635362518
 GameObject:
   m_ObjectHideFlags: 0
@@ -41502,6 +41513,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4079520549543249567, guid: 57fcf70c605926849990334cdb491162, type: 3}
+      propertyPath: enemy_left
+      value: 
+      objectReference: {fileID: 1609442804}
+    - target: {fileID: 4079520549543249567, guid: 57fcf70c605926849990334cdb491162, type: 3}
       propertyPath: GameWinAudio
       value: 
       objectReference: {fileID: 1594871525}
@@ -41768,6 +41783,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7906019992290463755, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 2061383701}
     - target: {fileID: 7906019992290463755, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: timer
       value: 
