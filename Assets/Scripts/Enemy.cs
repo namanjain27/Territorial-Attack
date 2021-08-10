@@ -11,17 +11,13 @@ public class Enemy : MonoBehaviour
 	public bool isHit = false;
 	float count;
 	public GameObject hero;
-	
-
 	public HealthBar healthBar;
-
 	public Collided collided;
-
 	public AudioSource HitAudio;
-
 	Animator m_Animator;
-
 	public bool isDied = false;
+	public float die_time = 2f;
+	public bool cried = false;
 
 	public void Damage(float damage)
 	{
@@ -34,7 +30,12 @@ public class Enemy : MonoBehaviour
 		healthBar.SetHealth(maxHealth);
 		healthBar.slider.value = 100f;
 	}
-	// Start is called before the first frame update
+
+	public void die_wait(){
+		die_time -= Time.deltaTime;
+		if(die_time<=0) cried = true;
+	}
+
 	void Start()
 	{
 		count = thundertime;
@@ -71,9 +72,22 @@ public class Enemy : MonoBehaviour
 		}
 		if (currentHealth <= 0)
 		{
-			isDied = true;
-			m_Animator.SetBool("HasDied", isDied);
-			hero.SetActive(false);
+			m_Animator.Play("Enemy_Die");
+			hero.GetComponent<EnemyMovement>().enabled = false;
+			hero.GetComponent<EnemyShoot>().enabled = false;
+			hero.GetComponent<CapsuleCollider2D>().enabled = false;
+			
+			die_wait();
+			if(cried){
+				isDied = true;
+			//m_Animator.SetBool("HasDied", isDied);
+				hero.SetActive(false);
+				cried = false;
+				hero.GetComponent<EnemyMovement>().enabled = true;
+				hero.GetComponent<EnemyShoot>().enabled = true;
+				hero.GetComponent<CapsuleCollider2D>().enabled = true;
+			}
+			
 			collided.i = 0;
 		}
 		m_Animator.SetBool("IsHit", isHit);

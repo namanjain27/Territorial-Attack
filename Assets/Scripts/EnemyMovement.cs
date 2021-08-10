@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 100f;
+    public float speed;
 
     float t = 0;
 
@@ -34,6 +34,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        speed = Random.Range(1.5f, 3.0f);
         timer -= Time.deltaTime;
         if(timer<=0)
         {
