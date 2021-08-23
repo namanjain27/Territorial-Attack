@@ -38,7 +38,7 @@ public class ShareOption : MonoBehaviour
 
 		var shareMessage = "Install the Territorial Attack game from the link below. It's my promise you will love it. Cheers\n\n" +
 
-						   "https://drive.google.com/drive/folders/1U5plbo2JQF3prwwDAlR467cDSdGodlzs?usp=sharing";
+						   "https://play.google.com/store/apps/details?id=com.HawkEyes.TerritorialAttack";
 
 		isProcessing = true;
 		if (!Application.isEditor)

@@ -20,7 +20,7 @@ public class EnemyShoot : MonoBehaviour
     public float time = 1f;
     public float gravityy = 5f;
     public float height;
-    public float timer = 6f;
+    public float timer = 3f;
     public float delayStart = 2;
     public float delayEnd = 4;
     float velocityX;
@@ -29,7 +29,7 @@ public class EnemyShoot : MonoBehaviour
     public Player player;
 
     int a;
-    int[] table = { 33, 33, 34 };
+    int[] table = { 17,33,50 };
     void Start()
     {
         countdown = timer;
@@ -56,11 +56,6 @@ public class EnemyShoot : MonoBehaviour
             countdown -= Time.deltaTime;
         if ( countdown < 0f)
         {
-            /*if(timer==8)
-            {
-                gameObject.transform.GetChild(3).gameObject.SetActive(false);
-                timer = 0;
-            }*/
             if(!player.reached_lever)
             {
                 Fire(projectile[a]);

@@ -11,7 +11,7 @@ public class LevelLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int levelReached=PlayerPrefs.GetInt("levelReached",1);
+        int levelReached=PlayerPrefs.GetInt("levelReached",0);
 
         LevelButtons = GameObject.FindGameObjectsWithTag("LevelLoaderButton");
         for (int i = 0; i < levelReached; i++)
@@ -21,18 +21,10 @@ public class LevelLoader : MonoBehaviour
         }
         int totalCoins = PlayerPrefs.GetInt("totalCoins", 0);
 
-        int highScore1 = PlayerPrefs.GetInt("highScore1", 0);
-        int highScore2 = PlayerPrefs.GetInt("highScore2", 0);
-        int highScore3 = PlayerPrefs.GetInt("highScore3", 0);
-        int highScore4 = PlayerPrefs.GetInt("highScore4", 0);
-        int highScore5 = PlayerPrefs.GetInt("highScore5", 0);
-        int highScore6 = PlayerPrefs.GetInt("highScore6", 0);
-        int highScore7 = PlayerPrefs.GetInt("highScore7", 0);
-        int highScore8 = PlayerPrefs.GetInt("highScore8", 0);
-        int highScore9 = PlayerPrefs.GetInt("highScore9", 0);
-        int highScore10 = PlayerPrefs.GetInt("highScore10", 0);
-        int highScore11 = PlayerPrefs.GetInt("highScore11", 0);
-        int highScore12 = PlayerPrefs.GetInt("highScore12", 0);
+        int RemainingBall = PlayerPrefs.GetInt("RemainingBall", 0);
+        int RemainingShoe = PlayerPrefs.GetInt("RemainingShoe", 0);
+        int RemainingStone = PlayerPrefs.GetInt("RemainingStone", 0);
+
     }
 
     public void LoadScene(int BuildIndex)

@@ -22,6 +22,10 @@ TagManager:
   - LevelLoaderButton
   - LevelLoader
   - ExitPrompt
+  - CoinCount
+  - Shield
+  - Boss
+  - ninja
   layers:
   - Default
   - TransparentFX

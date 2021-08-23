@@ -26,15 +26,21 @@ public class Player : MonoBehaviour
 	public HealthBar healthBar;
 
 	public Triggered trigger;
-
-	public CountdownTimer timer;
-
+	public ParticleSystem crackers;
+	public int coins;
+	public float timed = 2f; 
+	public int enemy_num;
+	public int time_ul= 17;
+    public int time_ll = 8;
+	public float secondsLeft = 0f;
+	public bool time_over = true;
+	int a=0;
 	public GameObject healthPotion;
 	public bool reached_lever = false;
 	public GameObject Pause;
 	public AudioSource HitAudio;
 	//public AudioSource GameOverAudio;
-	public GameObject[] hits_clone;
+	public GameObject[] enemy_order;
 	public int Hits =0;
 	public TextMeshProUGUI Number;
 	public Text enemy_left;
@@ -45,7 +51,8 @@ public class Player : MonoBehaviour
 	public GameObject MainPlayer;
 	private int remainingProjectiles;
 	private int LevelScore;
-
+	public bool enemy_shoot = false;
+	public bool enemy_walk = true;
 	Animator m_Animator;
 	
 	public void Damage(float damage)
@@ -66,15 +73,17 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		LevelScore = 0;
+		coins = PlayerPrefs.GetInt("totalCoins");
 		presentScene = SceneManager.GetActiveScene().buildIndex;
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 		GameOverImage.SetActive(false);
 		NextLevelImage.SetActive(false);
 		m_Animator = GetComponent<Animator>();
-		hits_clone = GameObject.FindGameObjectsWithTag("Enemy");
+		//hits_clone = GameObject.FindGameObjectsWithTag("Enemy");
 		MainPlayer = GameObject.FindGameObjectWithTag("Target");
-		enemyCount = timer.number + 1;
+		enemyCount = enemy_num;
 	}
 
 	void DestroyEnemy()
@@ -103,30 +112,47 @@ public class Player : MonoBehaviour
 		Hit.SetActive(false);
 		slider.SetActive(false);
 		shoot.SetActive(false);
-		for (int k = 0; k < (timer.number) + 1; k++)
+		for (int k = 0; k < enemy_num; k++)
 		{
-			hits_clone[k].SetActive(false);
+			enemy_order[k].SetActive(false);
 		}
 		ProjectileButton.SetActive(false);
+
+		PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
+		PlayerPrefs.SetInt("RemainingShoe", MainPlayer.GetComponent<DisableEnable>().shoe - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2);
+		PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
+		PlayerPrefs.Save();
+
 		GameOverImage.SetActive(true);
 		gameObject.GetComponent<Player>().enabled = false;
 		Pause.SetActive(false);
-		//EndLevel();
 	}
 
-	void HitCounter(){
-		//TextMeshPro Number = GetComponent<TextMeshPro>();
+	void HitCounter()
+	{
 		Number.text = Hits.ToString();
 		enemy_left.text = enemyCount.ToString();
 	}
-	
+
+	IEnumerator Activator(){      //activates the next enemy
+		time_over = false;
+		enemy_order[a].GetComponent<CapsuleCollider2D>().enabled = true;
+		enemy_order[a].GetComponent<EnemyMovement>().enabled = enemy_walk;
+		enemy_order[a].GetComponent<EnemyShoot>().enabled = enemy_shoot;
+		a++;
+		if(a==enemy_num)a=0;
+		secondsLeft = Random.Range(time_ll,time_ul);
+		yield return new WaitForSeconds(secondsLeft);
+		time_over = true;
+	}
+
 	// Update is called once per frame
 	void FixedUpdate()
-	{	for(int i=0; i<(timer.number)+1; i++ )
+	{	for(int i=0; i<(enemy_num); i++ )
 		{
-			Hits += (int)hits_clone[i].GetComponent<Collided>().HitCount;
-			hits_clone[i].GetComponent<Collided>().HitCount = 0;
-			if(hits_clone[i].transform.position.x <= -2)
+			Hits += (int)enemy_order[i].GetComponent<Collided>().HitCount;
+			enemy_order[i].GetComponent<Collided>().HitCount = 0;
+			if(enemy_order[i].transform.position.x <= -2)
 			{
 				reached_lever = true;
 	        }
@@ -147,13 +173,18 @@ public class Player : MonoBehaviour
 			m_Animator.SetBool("HasDied", IsDead);
 			DestroyObject();
 		}
-		for(int i=0;i<timer.number;i++)
+
+		if(time_over){
+			StartCoroutine(Activator());
+		}
+
+		for(int i=0;i<enemy_num;i++)
         {
-			if (timer.clonedEnemy[i].GetComponent<Enemy>().isDied)
+			if (enemy_order[i].GetComponent<Enemy>().isDied)
 			{
-				for ( i = 0; i < timer.number; i++)
+				for ( i = 0; i < enemy_num; i++)
                 {
-					timer.clonedEnemy[i].GetComponent<Enemy>().isDied = false;
+					enemy_order[i].GetComponent<Enemy>().isDied = false;
 				}
 				enemy.isDied = false;
 					enemyCount -= 1;
@@ -164,146 +195,44 @@ public class Player : MonoBehaviour
 			enemy.isDied = false;
 			enemyCount -= 1; //counts the enemies left to win that level 
 		}
-		if (enemyCount == 0) DestroyEnemy();
-
+		if (enemyCount == 0) {
+			if(timed==2f) crackers.Play();
+			//Debug.Log("works");
+			if(timed>=0) timed -= Time.deltaTime;
+			if(timed < 0) DestroyEnemy();
+			
+		}
 		m_Animator.SetBool("IsHit", isHit);
 	}
 
 	public void WinLevel()
     {
-		if (presentScene == 1) return;
+		if (presentScene == 1)
+        {
+			PlayerPrefs.SetInt("totalCoins", 0);
+			PlayerPrefs.SetInt("levelReached", presentScene);
+			return;
+		}
 		//remainingProjectiles = MainPlayer.GetComponent<DisableEnable>().ball + MainPlayer.GetComponent<DisableEnable>().shoe + MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1 - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3 - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2;
-		LevelScore = Hits * 100;
-		if (LevelScore == 0) LevelScore = 100;
-		NextLevelImage.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Your Score -" + LevelScore;
-        if (presentScene == 2)
-        {
-			if (PlayerPrefs.GetInt("highScore1") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore1", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore1"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + ( LevelScore - PlayerPrefs.GetInt("highScore1"))/100;
-				PlayerPrefs.SetInt("highScore1", LevelScore);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore1").ToString();
-		}
-		else if (presentScene == 3 )
-		{
-			if (PlayerPrefs.GetInt("highScore2") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore2", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore  / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore2"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore2")) / 100;
-				PlayerPrefs.SetInt("totalCoins", coins);
-				PlayerPrefs.SetInt("highScore2", LevelScore);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore2").ToString();
-		}
-		else if (presentScene == 4)
-		{
-			if (PlayerPrefs.GetInt("highScore3") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore3", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore  / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore3"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore3")) / 100;
-				PlayerPrefs.SetInt("totalCoins", coins);
-				PlayerPrefs.SetInt("highScore3", LevelScore);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore3").ToString();
-		}
-		else if (presentScene == 5)
-		{
-			if (PlayerPrefs.GetInt("highScore4") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore4", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore  / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore4"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore4")) / 100;
-				PlayerPrefs.SetInt("totalCoins", coins);
-				PlayerPrefs.SetInt("highScore4", LevelScore);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore4").ToString();
-		}
-		else if (presentScene == 6)
-        {
-			if (PlayerPrefs.GetInt("highScore5") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore5", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore5"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore5")) / 100;
-				PlayerPrefs.SetInt("totalCoins", coins);
-				PlayerPrefs.SetInt("highScore5", LevelScore);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore5").ToString();
-		}
-		else if (presentScene == 7)
-		{
-			if (PlayerPrefs.GetInt("highScore6") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore6", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore6"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore6")) / 100;
-				PlayerPrefs.SetInt("totalCoins", coins);
-				PlayerPrefs.SetInt("highScore6", LevelScore);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore6").ToString();
-		}
-		else if (presentScene == 8) 
-		{
-			if (PlayerPrefs.GetInt("highScore7") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore7", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore7"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore7")) / 100;
-				PlayerPrefs.SetInt("totalCoins", coins);
-				PlayerPrefs.SetInt("highScore7", LevelScore);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore7").ToString();
-		}
-		else if (presentScene == 9)
-		{
-			if (PlayerPrefs.GetInt("highScore8") <= 0)
-			{
-				PlayerPrefs.SetInt("highScore8", LevelScore);
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore  / 100);
-				PlayerPrefs.SetInt("totalCoins", coins);				
-			}
-			else if (LevelScore > PlayerPrefs.GetInt("highScore8"))
-			{
-				int coins = PlayerPrefs.GetInt("totalCoins") + (LevelScore - PlayerPrefs.GetInt("highScore8")) / 100;
-				PlayerPrefs.SetInt("totalCoins", coins);
-				PlayerPrefs.SetInt("highScore8", LevelScore);
-			}
-			NextLevelImage.transform.GetChild(4).gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("highScore8").ToString();
-		}
+		LevelScore = Hits ;
+		LevelScore += presentScene * 3; 
+		NextLevelImage.transform.GetChild(3).gameObject.GetComponent<Text>().text = "coins earned -" + LevelScore;
+		coins = coins + (LevelScore);
+		PlayerPrefs.SetInt("totalCoins", coins);
 		PlayerPrefs.SetInt("levelReached", presentScene);
+
+        if(presentScene==2)
+		{
+		PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(4).gameObject.GetComponent<Shoot>().count1);
+		PlayerPrefs.SetInt("RemainingShoe", MainPlayer.GetComponent<DisableEnable>().shoe- MainPlayer.transform.GetChild(4).gameObject.GetComponent<Shoot>().count2);
+		PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(4).gameObject.GetComponent<Shoot>().count3);
+		}
+		else
+		{
+		PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
+		PlayerPrefs.SetInt("RemainingShoe", MainPlayer.GetComponent<DisableEnable>().shoe- MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2);
+		PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
+		}
+		PlayerPrefs.Save();
 	}
 }

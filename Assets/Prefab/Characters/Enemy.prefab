@@ -258,12 +258,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  thundertime: 1
   isHit: 0
   hero: {fileID: 7906019992290463756}
   healthBar: {fileID: 7906019992424140690}
   collided: {fileID: 7906019992290463749}
   HitAudio: {fileID: 7906019992290463748}
   isDied: 0
+  die_time: 2
+  cried: 0
 --- !u!114 &7906019992290463754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +274,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7906019992290463756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f78374a0e98dff34db5f0d829fee0ee5, type: 3}
   m_Name: 
@@ -289,6 +292,9 @@ MonoBehaviour:
   time: 1.2
   gravityy: 4
   height: 0
+  timer: 6
+  delayStart: 2
+  delayEnd: 4
   player: {fileID: 0}
 --- !u!70 &7906019992290463752
 CapsuleCollider2D:
@@ -297,7 +303,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7906019992290463756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -320,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i: 0
   HitCount: 0
-  Costs: {fileID: 0}
+  enemythunder: {fileID: 0}
 --- !u!82 &7906019992290463748
 AudioSource:
   m_ObjectHideFlags: 0
@@ -333,7 +339,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02ee06942191ab4a8a6f23927b6e917, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -443,7 +449,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7906019992290463756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b164ac7c5b9f264e83b9236512e5ef2, type: 3}
   m_Name: 

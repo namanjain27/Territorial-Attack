@@ -9897,6 +9897,8 @@ MonoBehaviour:
   collided: {fileID: 9043673327249506576}
   HitAudio: {fileID: 9043673327249506577}
   isDied: 0
+  die_time: 2
+  cried: 0
 --- !u!114 &9043673327249506591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9957,7 +9959,6 @@ MonoBehaviour:
   i: 0
   HitCount: 0
   enemythunder: {fileID: 0}
-  Costs: {fileID: 0}
 --- !u!82 &9043673327249506577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9970,7 +9971,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02ee06942191ab4a8a6f23927b6e917, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

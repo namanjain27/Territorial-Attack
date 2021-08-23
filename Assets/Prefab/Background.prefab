@@ -115,7 +115,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 81190d4a7d2e2c841afdfbefb15b9ca1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -653,7 +653,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 38defd7f044a7a347b0e4325acf23afc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -848,10 +848,7 @@ MonoBehaviour:
   hammer: {fileID: 0}
   shield: {fileID: 0}
   tracer: {fileID: 0}
-  HP_cost: 4
-  H_cost: 1000
-  S_cost: 6
-  L_cost: 3
+  presentScene: 0
   hit: 0
   player: {fileID: 0}
 --- !u!68 &5499615235493483323
@@ -2373,7 +2370,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5499615236814224764}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66120963e3f81f74eaeac7d40e689157, type: 3}
   m_Name: 
@@ -2381,16 +2378,12 @@ MonoBehaviour:
   secondsLeft: 20
   counter: 0
   number: 4
+  Player: {fileID: 0}
   takingAway: 0
-  Stationary: {fileID: 0}
-  Enemy: {fileID: 0}
   text: {fileID: 5499615235941549219}
-  Counter: {fileID: 5499615236814224764}
-  clonedEnemy:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  timer: {fileID: 5499615236814224764}
+  time_ul: 18
+  time_ll: 9
 --- !u!1 &5499615237004091206
 GameObject:
   m_ObjectHideFlags: 0

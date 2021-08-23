@@ -7,22 +7,21 @@ public class Collided : MonoBehaviour
     public int i = 0;
     public float HitCount = 0f;
     public ParticleSystem enemythunder;
-    public PowerupController Costs;
     //public EnemyMovement movement;
     public void HP_click(){
-        HitCount -= Costs.HP_cost;
+        HitCount -= 4;
     }
 
     public void H_click(){
-        HitCount -= Costs.H_cost;
+        HitCount -= 8;
     }
 
     public void S_click(){
-        HitCount -= Costs.S_cost;
+        HitCount -= 6;
     }
 
     public void L_click(){
-        HitCount -= Costs.L_cost;
+        HitCount -= 3;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

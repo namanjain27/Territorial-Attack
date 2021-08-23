@@ -10346,9 +10346,9 @@ GameObject:
   m_Component:
   - component: {fileID: 90502019609807930}
   - component: {fileID: 90502019609807931}
+  - component: {fileID: 90502019609807910}
   - component: {fileID: 90502019609807911}
   - component: {fileID: 90502019609807928}
-  - component: {fileID: 90502019609807910}
   - component: {fileID: 90502019609807908}
   - component: {fileID: 90502019609807906}
   - component: {fileID: 90502019609807907}
@@ -10435,6 +10435,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &90502019609807910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90502019609807932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a703563e50986724c9c16b3c7fab3ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  presentScene: 0
+  Hit: {fileID: 0}
+  slider: {fileID: 0}
+  shoot: {fileID: 0}
+  ProjectileButton: {fileID: 0}
+  enemyCount: 0
+  MainEnemy: 0
+  hero: {fileID: 90502018509892993}
+  GameOverImage: {fileID: 0}
+  NextLevelImage: {fileID: 0}
+  enemy: {fileID: 0}
+  healthBar: {fileID: 90502018509893007}
+  trigger: {fileID: 5030788409637395547}
+  enemy_num: 0
+  time_ul: 18
+  time_ll: 9
+  secondsLeft: 0
+  timeOver: 0
+  healthPotion: {fileID: 0}
+  reached_lever: 0
+  Pause: {fileID: 0}
+  HitAudio: {fileID: 90502019609807908}
+  enemy_order: []
+  Hits: 0
+  Number: {fileID: 0}
+  enemy_left: {fileID: 0}
+  IsDead: 0
+  MainAudio: {fileID: 0}
+  GameOverAudio: {fileID: 0}
+  GameWinAudio: {fileID: 0}
+  MainPlayer: {fileID: 0}
 --- !u!114 &90502019609807911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10484,46 +10529,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &90502019609807910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90502019609807932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a703563e50986724c9c16b3c7fab3ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  presentScene: 0
-  Hit: {fileID: 0}
-  slider: {fileID: 0}
-  shoot: {fileID: 0}
-  ProjectileButton: {fileID: 0}
-  enemyCount: 0
-  MainEnemy: 0
-  hero: {fileID: 90502018509892993}
-  GameOverImage: {fileID: 0}
-  NextLevelImage: {fileID: 0}
-  enemy: {fileID: 0}
-  healthBar: {fileID: 90502018509893007}
-  trigger: {fileID: 5030788409637395547}
-  timer: {fileID: 0}
-  healthPotion: {fileID: 0}
-  reached_lever: 0
-  Pause: {fileID: 0}
-  HitAudio: {fileID: 90502019609807908}
-  hits_clone: []
-  Hits: 0
-  Number: {fileID: 0}
-  IsDead: 0
-  MainAudio: {fileID: 0}
-  GameOverAudio: {fileID: 0}
-  GameWinAudio: {fileID: 0}
-  MainPlayer: {fileID: 0}
 --- !u!82 &90502019609807908
 AudioSource:
   m_ObjectHideFlags: 0
