@@ -113,9 +113,9 @@ public class Player : MonoBehaviour
 
 		if(presentScene >= 6)
 		{
-		PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
+		PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
 		PlayerPrefs.SetInt("RemainingShoe", MainPlayer.GetComponent<DisableEnable>().shoe - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2);
-		PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
+		PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
 		PlayerPrefs.Save();
 		}
 		/*if(presentScene>=2)
@@ -231,14 +231,14 @@ public class Player : MonoBehaviour
 		NextLevelImage.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Coins earned -" + LevelScore.ToString();
 		coins = coins + (LevelScore);
 		PlayerPrefs.SetInt("totalCoins", coins);
-		PlayerPrefs.SetInt("levelReached", presentScene);
+		if(presentScene>PlayerPrefs.GetInt("levelReached"))	PlayerPrefs.SetInt("levelReached", presentScene);
 		PlayerPrefs.Save();
 
         if(presentScene>=6)
         {
-			PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
+			PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
 			PlayerPrefs.SetInt("RemainingShoe", MainPlayer.GetComponent<DisableEnable>().shoe - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2);
-			PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
+			PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
 			PlayerPrefs.Save();
 		}
 	}

@@ -320,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 754745653}
     - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled
@@ -598,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 1005418880}
     - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled
@@ -1044,7 +1044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 17987998983955772, guid: c450dac1c4fe823459f0fe3b587cdbe7, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c450dac1c4fe823459f0fe3b587cdbe7, type: 3}
@@ -1078,7 +1078,7 @@ PrefabInstance:
       objectReference: {fileID: 2030416640}
     - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled
@@ -1218,6 +1218,10 @@ PrefabInstance:
       propertyPath: shield
       value: 
       objectReference: {fileID: 233022685}
+    - target: {fileID: 90502019609807908, guid: 620457a2f7e7ee44dab13483d096ba47, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 90502019609807910, guid: 620457a2f7e7ee44dab13483d096ba47, type: 3}
       propertyPath: Hit
       value: 
@@ -1451,7 +1455,7 @@ PrefabInstance:
       objectReference: {fileID: 4425637785536673553}
     - target: {fileID: 3014696885322338228, guid: 51dde0c863447a9478778fd8d27369f4, type: 3}
       propertyPath: audioVolume
-      value: 0.06
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3014696885322338229, guid: 51dde0c863447a9478778fd8d27369f4, type: 3}
       propertyPath: Pause
@@ -2559,7 +2563,7 @@ PrefabInstance:
       objectReference: {fileID: 9043673326944218889}
     - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled

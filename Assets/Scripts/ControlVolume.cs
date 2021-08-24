@@ -14,6 +14,7 @@ public class ControlVolume : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Audio.volume = PlayerPrefs.GetFloat("Volume");
         presentScene = SceneManager.GetActiveScene().buildIndex;
         if (presentScene == 0 || presentScene >= 6) Coins = GameObject.FindGameObjectWithTag("CoinCount");
     }

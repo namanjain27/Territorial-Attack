@@ -164,6 +164,7 @@ public class PauseMenu : MonoBehaviour
         MainPlayer.GetComponent<DisableEnable>().ball += 5;
         coins = coins - 5;
         PlayerPrefs.SetInt("totalCoins", coins);
+        PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
         PlayerPrefs.Save();
     }
 
@@ -179,6 +180,7 @@ public class PauseMenu : MonoBehaviour
         MainPlayer.GetComponent<DisableEnable>().shoe += 5;
         coins = coins - 10;
         PlayerPrefs.SetInt("totalCoins", coins);
+        PlayerPrefs.SetInt("RemainingShoe", MainPlayer.GetComponent<DisableEnable>().shoe - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2);
         PlayerPrefs.Save();
     }
 
@@ -194,6 +196,7 @@ public class PauseMenu : MonoBehaviour
         MainPlayer.GetComponent<DisableEnable>().stone += 5;
         coins = coins - 15;
         PlayerPrefs.SetInt("totalCoins", coins);
+        PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
         PlayerPrefs.Save();
     }
 }

@@ -54,6 +54,10 @@ PrefabInstance:
       propertyPath: enemythunder
       value: 
       objectReference: {fileID: 7976374455242656336}
+    - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506578, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Controller
       value: 

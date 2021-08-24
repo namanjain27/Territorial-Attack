@@ -25,6 +25,8 @@ public class LevelLoader : MonoBehaviour
         int RemainingShoe = PlayerPrefs.GetInt("RemainingShoe", 0);
         int RemainingStone = PlayerPrefs.GetInt("RemainingStone", 0);
 
+        float Volume = PlayerPrefs.GetFloat("Volume", 0.6f);
+
     }
 
     public void LoadScene(int BuildIndex)

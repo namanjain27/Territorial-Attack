@@ -7019,7 +7019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 519420033}
-  audioVolume: 0.06
+  audioVolume: 0.4
   cam: {fileID: 519420028}
   Coins: {fileID: 1094358401}
 --- !u!1 &521277083
@@ -7193,7 +7193,6 @@ MonoBehaviour:
   slider: {fileID: 503939216}
   shoot: {fileID: 182659510}
   pause: {fileID: 1888980478}
-  MainPlayer: {fileID: 1377858507}
 --- !u!114 &536287068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14961,7 +14960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463748, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463749, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: Costs
@@ -21168,7 +21167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463748, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463749, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: Costs
@@ -55109,6 +55108,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1377858507}
+    - target: {fileID: 4079520549543249565, guid: 57fcf70c605926849990334cdb491162, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4079520549543249566, guid: 57fcf70c605926849990334cdb491162, type: 3}
       propertyPath: bow
       value: 
@@ -55123,11 +55126,11 @@ PrefabInstance:
       objectReference: {fileID: 891153440}
     - target: {fileID: 4079520549543249566, guid: 57fcf70c605926849990334cdb491162, type: 3}
       propertyPath: ball
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4079520549543249566, guid: 57fcf70c605926849990334cdb491162, type: 3}
       propertyPath: shoe
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4079520549543249566, guid: 57fcf70c605926849990334cdb491162, type: 3}
       propertyPath: Stone
@@ -55147,7 +55150,7 @@ PrefabInstance:
       objectReference: {fileID: 4079520548232557904}
     - target: {fileID: 4079520549543249566, guid: 57fcf70c605926849990334cdb491162, type: 3}
       propertyPath: stone
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4079520549543249566, guid: 57fcf70c605926849990334cdb491162, type: 3}
       propertyPath: stones
@@ -55498,7 +55501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463748, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463749, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: Costs

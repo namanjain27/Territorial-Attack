@@ -293,6 +293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7865907683259069788, guid: 5ce7502ed2a08cb4490c8f08bb439239, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce7502ed2a08cb4490c8f08bb439239, type: 3}
 --- !u!1 &344119168 stripped
@@ -437,6 +441,10 @@ PrefabInstance:
     - target: {fileID: 7865907683259069782, guid: 5ce7502ed2a08cb4490c8f08bb439239, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865907683259069788, guid: 5ce7502ed2a08cb4490c8f08bb439239, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce7502ed2a08cb4490c8f08bb439239, type: 3}
@@ -977,6 +985,10 @@ PrefabInstance:
       propertyPath: enemythunder
       value: 
       objectReference: {fileID: 1429591559}
+    - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1134,6 +1146,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 17987998983955772, guid: c450dac1c4fe823459f0fe3b587cdbe7, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c450dac1c4fe823459f0fe3b587cdbe7, type: 3}
 --- !u!1 &1618241831 stripped
@@ -1218,6 +1234,10 @@ PrefabInstance:
     - target: {fileID: 17987998983955766, guid: c450dac1c4fe823459f0fe3b587cdbe7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17987998983955772, guid: c450dac1c4fe823459f0fe3b587cdbe7, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c450dac1c4fe823459f0fe3b587cdbe7, type: 3}
@@ -1308,6 +1328,10 @@ PrefabInstance:
       propertyPath: enemythunder
       value: 
       objectReference: {fileID: 2057319904}
+    - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1466,6 +1490,10 @@ PrefabInstance:
       propertyPath: shield
       value: 
       objectReference: {fileID: 233022685}
+    - target: {fileID: 90502019609807908, guid: 620457a2f7e7ee44dab13483d096ba47, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 90502019609807910, guid: 620457a2f7e7ee44dab13483d096ba47, type: 3}
       propertyPath: Hit
       value: 
@@ -1777,6 +1805,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7865907683259069788, guid: 5ce7502ed2a08cb4490c8f08bb439239, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce7502ed2a08cb4490c8f08bb439239, type: 3}
 --- !u!1001 &3014696884966586166
@@ -1862,6 +1894,10 @@ PrefabInstance:
     - target: {fileID: 5780121389516245596, guid: f9af9630d2b8b5241a9903320dcaa6d6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780121391547404402, guid: f9af9630d2b8b5241a9903320dcaa6d6, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5780121391547404408, guid: f9af9630d2b8b5241a9903320dcaa6d6, type: 3}
       propertyPath: m_RootOrder
@@ -3185,6 +3221,10 @@ PrefabInstance:
       propertyPath: enemythunder
       value: 
       objectReference: {fileID: 9043673326944218889}
+    - target: {fileID: 9043673327249506577, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled
       value: 0

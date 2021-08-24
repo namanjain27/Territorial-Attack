@@ -7703,7 +7703,6 @@ MonoBehaviour:
   slider: {fileID: 503939216}
   shoot: {fileID: 182659510}
   pause: {fileID: 1888980478}
-  MainPlayer: {fileID: 1377858507}
 --- !u!114 &536287068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39484,7 +39483,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.06
+          m_FloatArgument: 0.4
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -44266,7 +44265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463748, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463749, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: Costs

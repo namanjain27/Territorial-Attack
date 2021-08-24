@@ -51,14 +51,7 @@ public class DisableEnable : MonoBehaviour
             PlayerPrefs.SetInt("RemainingStone", 0);
             PlayerPrefs.SetInt("RemainingShoe", 0);
             PlayerPrefs.SetInt("RemainingBall", 0);
-            PlayerPrefs.Save();
-
-            if (presentScene==6)
-            {
-                ball -= ballIncreased;
-                shoe -= shoeIncreased;
-                stone -= stoneIncreased;
-            }            
+            PlayerPrefs.Save();           
         }
         for (int i=0;i<3;i++)
         {

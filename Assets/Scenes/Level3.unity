@@ -16942,7 +16942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 519420033}
-  audioVolume: 0.06
+  audioVolume: 0.4
   cam: {fileID: 519420028}
   Coins: {fileID: 2140174409}
 --- !u!1 &536287065
@@ -17003,7 +17003,6 @@ MonoBehaviour:
   slider: {fileID: 503939216}
   shoot: {fileID: 182659510}
   pause: {fileID: 1888980478}
-  MainPlayer: {fileID: 1377858507}
 --- !u!114 &536287068
 MonoBehaviour:
   m_ObjectHideFlags: 0
