@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 3014696885322338231}
-  audioVolume: 0.08
+  audioVolume: 0.06
   cam: {fileID: 3014696885322338122}
   Coins: {fileID: 0}
 --- !u!82 &3014696885322338231

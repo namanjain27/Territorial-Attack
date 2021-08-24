@@ -64,7 +64,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506585, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Name
-      value: boss
+      value: boss Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506586, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Sprite
@@ -193,6 +193,10 @@ PrefabInstance:
     - target: {fileID: 9043673328168865537, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043673328168865538, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
+      propertyPath: m_Volume
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9043673328168865539, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Enabled

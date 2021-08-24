@@ -120,6 +120,8 @@ public class Shoot : MonoBehaviour
             GameObject Stoneclone = Instantiate(other, HammerSprite.transform.position, HammerSprite.transform.rotation);
             Stoneclone.GetComponent<Rotation>().rotation = true;
             Stoneclone.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            float range = WindEffect;
+            WindEffect = Random.Range((float)(range * 0.5), (float)(range * 1.5));
             if(LaunchForce>2000)
             {
                 Stoneclone.GetComponent<Rigidbody2D>().AddForce(transform.right * (2000 - WindEffect));

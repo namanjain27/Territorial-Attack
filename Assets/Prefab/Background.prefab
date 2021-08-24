@@ -3661,6 +3661,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2816146306822698103, guid: 372a7a5e45a4ce24dbd77fea341e276c, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816146306822698103, guid: 372a7a5e45a4ce24dbd77fea341e276c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2816146306822698104, guid: 372a7a5e45a4ce24dbd77fea341e276c, type: 3}
       propertyPath: m_LocalScale.x
       value: 100

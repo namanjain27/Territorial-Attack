@@ -14,10 +14,10 @@ public class Enemy : MonoBehaviour
 	public HealthBar healthBar;
 	public Collided collided;
 	public AudioSource HitAudio;
+	public AudioSource thunder_audio;
 	Animator m_Animator;
 	public bool isDied = false;
 	public float die_time = 2f;
-	public bool cried = false;
 	public GameObject Player;
 
 	public void Damage(float damage)
@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
 
 	public void die_wait(){
 		die_time -= Time.deltaTime;
-		if(die_time<=0) cried = true;
 	}
 
 	void Start()
@@ -46,7 +45,6 @@ public class Enemy : MonoBehaviour
 		
 		m_Animator = GetComponent<Animator>();
 	}
-	// Update is called once per frame
 	void FixedUpdate()
 	{
 		if (collided.i != 0 && collided.i!=7)
@@ -63,10 +61,7 @@ public class Enemy : MonoBehaviour
 			count -= Time.deltaTime;
 			if(count<0)
             {
-				isHit = true;
-				m_Animator.SetBool("IsHit", isHit);
-				HitAudio.Play();
-
+				thunder_audio.Play();
 				Damage(collided.i * 10);
 				collided.i = 0;
 				count= thundertime;
@@ -85,20 +80,15 @@ public class Enemy : MonoBehaviour
 			hero.GetComponent<EnemyMovement>().enabled = false;
 			hero.GetComponent<EnemyShoot>().enabled = false;
 			hero.GetComponent<CapsuleCollider2D>().enabled = false;
+			hero.transform.GetChild(1).gameObject.SetActive(false);
 			
 			die_wait();
-			if(cried){
+			if(die_time<=0){
 				isDied = true;
-			//m_Animator.SetBool("HasDied", isDied);
 				hero.SetActive(false);
-				cried = false;
-				hero.GetComponent<EnemyMovement>().enabled = true;
-				hero.GetComponent<EnemyShoot>().enabled = true;
-				hero.GetComponent<CapsuleCollider2D>().enabled = true;
 			}
 			
 			collided.i = 0;
 		}
-		m_Animator.SetBool("IsHit", isHit);
 	}
 }

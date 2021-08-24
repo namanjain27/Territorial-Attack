@@ -17,12 +17,10 @@ public class Player : MonoBehaviour
 
 	public int enemyCount;
 	public int MainEnemy;
-
 	public GameObject hero;
 	public GameObject GameOverImage;
 	public GameObject NextLevelImage;
 	public Enemy enemy;
-
 	public HealthBar healthBar;
 
 	public Triggered trigger;
@@ -39,7 +37,6 @@ public class Player : MonoBehaviour
 	public bool reached_lever = false;
 	public GameObject Pause;
 	public AudioSource HitAudio;
-	//public AudioSource GameOverAudio;
 	public GameObject[] enemy_order;
 	public int Hits =0;
 	public TextMeshProUGUI Number;
@@ -54,7 +51,6 @@ public class Player : MonoBehaviour
 	public bool enemy_shoot = false;
 	public bool enemy_walk = true;
 	Animator m_Animator;
-
 	float PlayerAnimation=1f;
 	
 	public void Damage(float damage)
@@ -72,7 +68,6 @@ public class Player : MonoBehaviour
 		healthPotion.SetActive(true);
 	}
 
-	// Start is called before the first frame update
 	void Start()
 	{
 		LevelScore = 0;
@@ -83,7 +78,6 @@ public class Player : MonoBehaviour
 		GameOverImage.SetActive(false);
 		NextLevelImage.SetActive(false);
 		m_Animator = GetComponent<Animator>();
-		//hits_clone = GameObject.FindGameObjectsWithTag("Enemy");
 		MainPlayer = GameObject.FindGameObjectWithTag("Target");
 		enemyCount = enemy_num;
 	}
@@ -94,8 +88,6 @@ public class Player : MonoBehaviour
 		slider.SetActive(false);
 		shoot.SetActive(false);
 		Pause.SetActive(false);
-		MainAudio.Stop();
-		GameWinAudio.GetComponent<AudioSource>().enabled = true;
 		gameObject.SetActive(false);
 		ProjectileButton.SetActive(false);
 		WinLevel();
@@ -110,7 +102,6 @@ public class Player : MonoBehaviour
 		gameObject.GetComponent<AudioSource>().enabled = false;
 		MainAudio.Stop();
 		GameOverAudio.GetComponent<AudioSource>().enabled = true;
-		//GameOverAudio.Play();
 		Hit.SetActive(false);
 		slider.SetActive(false);
 		shoot.SetActive(false);
@@ -127,14 +118,14 @@ public class Player : MonoBehaviour
 		PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
 		PlayerPrefs.Save();
 		}
-		if(presentScene>=2)
+		/*if(presentScene>=2)
         {
 			LevelScore = Hits;
 			GameOverImage.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Coins earned -" + LevelScore.ToString();
 			coins = coins + (LevelScore);
 			PlayerPrefs.SetInt("totalCoins", coins);
 			PlayerPrefs.Save();
-		}
+		}*/
 		GameOverImage.SetActive(true);
 		gameObject.GetComponent<Player>().enabled = false;
 		Pause.SetActive(false);
@@ -158,7 +149,6 @@ public class Player : MonoBehaviour
 		time_over = true;
 	}
 
-	// Update is called once per frame
 	void FixedUpdate()
 	{
 		coins = PlayerPrefs.GetInt("totalCoins");
@@ -184,11 +174,11 @@ public class Player : MonoBehaviour
 		if (currentHealth <= 0)
 		{
 			isHit = false;
-			m_Animator.SetBool("IsHit", isHit);
+			//m_Animator.SetBool("IsHit", isHit);
 			IsDead = true;
 			m_Animator.SetBool("HasDied", IsDead);
 			if (PlayerAnimation >= 0) PlayerAnimation -= Time.deltaTime;
-			if (PlayerAnimation < 0) DestroyEnemy();
+			if (PlayerAnimation < 0) DestroyObject();
 		}
 
 		if(time_over){
@@ -213,11 +203,14 @@ public class Player : MonoBehaviour
 			enemyCount -= 1; //counts the enemies left to win that level 
 		}
 		if (enemyCount == 0) {
-			if(timed==3f) crackers.Play();
-			//Debug.Log("works");
+			if(timed==3f)
+            {
+				MainAudio.Stop();
+				GameWinAudio.GetComponent<AudioSource>().enabled = true;
+				crackers.Play();
+			}				
 			if(timed>=0) timed -= Time.deltaTime;
-			if(timed < 0) DestroyEnemy();
-			
+			if(timed < 0) DestroyEnemy();			
 		}
 		m_Animator.SetBool("IsHit", isHit);
 	}
@@ -228,8 +221,13 @@ public class Player : MonoBehaviour
 		{
 			return;
 		}
-		LevelScore = Hits ;
-		if(presentScene>=5) LevelScore += (presentScene-1) * 4; 
+		LevelScore = Hits;
+		if(presentScene>2)
+        {
+			LevelScore *= 2;
+			if (trigger.Count == 0) LevelScore += presentScene * 2;
+			LevelScore += (presentScene - 1) * 4;
+		}		 
 		NextLevelImage.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Coins earned -" + LevelScore.ToString();
 		coins = coins + (LevelScore);
 		PlayerPrefs.SetInt("totalCoins", coins);

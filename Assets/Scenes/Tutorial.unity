@@ -8167,7 +8167,7 @@ MonoBehaviour:
   Audio: {fileID: 519420033}
   audioVolume: 0
   cam: {fileID: 519420028}
-  Coins: {fileID: 0}
+  Coins: {fileID: 347205737}
 --- !u!1 &536287065
 GameObject:
   m_ObjectHideFlags: 0
@@ -8226,6 +8226,7 @@ MonoBehaviour:
   slider: {fileID: 503939216}
   shoot: {fileID: 182659510}
   pause: {fileID: 1888980478}
+  MainPlayer: {fileID: 1377858507}
 --- !u!114 &536287068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14795,6 +14796,38 @@ PrefabInstance:
     - target: {fileID: 399331036747608023, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1377858515}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Behaviour, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 399331036821231731, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 399331037260126252, guid: 1690d692a78e0874caf6955e73983b81, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -29964,6 +29997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i: 0
   trigger: {fileID: 1377858507}
+  Count: 0
 --- !u!114 &1377858510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35695,7 +35729,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.1
+          m_FloatArgument: 0.06
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -38592,6 +38626,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1377858515}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1888980481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40973,6 +41019,10 @@ PrefabInstance:
     - target: {fileID: 7906019992122940589, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906019992290463748, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7906019992290463749, guid: 4e04c9b512c756e478b98598b731b769, type: 3}
       propertyPath: Costs

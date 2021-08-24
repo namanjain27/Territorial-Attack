@@ -5475,8 +5475,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90502019216361202}
   m_LocalRotation: {x: 0, y: 0, z: -0.68071955, w: 0.7325442}
-  m_LocalPosition: {x: 4.12, y: -0.03, z: 0}
-  m_LocalScale: {x: 2.0038507, y: 1.1612425, z: 1.2647}
+  m_LocalPosition: {x: 2.276, y: 0.931, z: 0}
+  m_LocalScale: {x: 1.7653924, y: 1.0184096, z: 1.2647}
   m_Children: []
   m_Father: {fileID: 90502017622868430}
   m_RootOrder: 3
@@ -10462,11 +10462,14 @@ MonoBehaviour:
   enemy: {fileID: 0}
   healthBar: {fileID: 90502018509893007}
   trigger: {fileID: 5030788409637395547}
+  crackers: {fileID: 0}
+  coins: 0
+  timed: 3
   enemy_num: 0
   time_ul: 18
   time_ll: 9
   secondsLeft: 0
-  timeOver: 0
+  time_over: 1
   healthPotion: {fileID: 0}
   reached_lever: 0
   Pause: {fileID: 0}
@@ -10480,6 +10483,8 @@ MonoBehaviour:
   GameOverAudio: {fileID: 0}
   GameWinAudio: {fileID: 0}
   MainPlayer: {fileID: 0}
+  enemy_shoot: 0
+  enemy_walk: 1
 --- !u!114 &90502019609807911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10541,7 +10546,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02ee06942191ab4a8a6f23927b6e917, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

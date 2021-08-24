@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ControlVolume : MonoBehaviour
 {
     public AudioSource Audio; // our audio to be played
-    public float audioVolume = 0.01f;
+    public float audioVolume ;
     public GameObject cam;
     public GameObject Coins;
     int presentScene;

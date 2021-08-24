@@ -46,6 +46,10 @@ public class boss : MonoBehaviour
         if (CollidedCount == 4){
             StartCoroutine(ready());
         }
-        if(Boss.GetComponent<Enemy>().maxHealth == 0){timed = false;}
+        if(Boss.GetComponent<Enemy>().maxHealth == 0)
+        {
+            timed = false;
+            bossShield.SetActive(false);
+        }
     }
 }

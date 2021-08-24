@@ -122,6 +122,7 @@ public class PauseMenu : MonoBehaviour
         PauseUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        MainPlayer.GetComponent<TouchForce>().enabled = true;
         powerslider.interactable = true;
         for (int i = 0; i < 9; i++)
         {
@@ -135,6 +136,7 @@ public class PauseMenu : MonoBehaviour
         PauseUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        MainPlayer.GetComponent<TouchForce>().enabled = false;
         powerslider.interactable = false;
         for(int i=0;i<9;i++)
         {
