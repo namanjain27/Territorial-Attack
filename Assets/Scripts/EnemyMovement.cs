@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         Stationary.transform.position = Enemy.transform.position;
         Stationary.transform.rotation = Enemy.transform.rotation;
-        speed  = 1f;
+        speed  = 2f;
     }
 
     void FixedUpdate()
@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
                 speed += speedChange;
                 timer = TimeChange;
                 if (gameObject.CompareTag("ninja")){
-                    speed = Random.Range(-1f, 3.5f);
+                    speed = Random.Range(-1f, 3.8f);
                 }
             }
         }

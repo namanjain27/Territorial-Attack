@@ -645,6 +645,9 @@ MonoBehaviour:
   enemy: {fileID: 0}
   healthBar: {fileID: 4079520548506183478}
   trigger: {fileID: 0}
+  crackers: {fileID: 0}
+  coins: 0
+  timed: 3
   enemy_num: 1
   time_ul: 17
   time_ll: 8
@@ -664,6 +667,7 @@ MonoBehaviour:
   GameWinAudio: {fileID: 0}
   MainPlayer: {fileID: 0}
   enemy_shoot: 1
+  enemy_walk: 1
 --- !u!82 &4079520549543249565
 AudioSource:
   m_ObjectHideFlags: 0

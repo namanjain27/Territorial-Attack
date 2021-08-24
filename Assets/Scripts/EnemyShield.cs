@@ -22,7 +22,7 @@ public class EnemyShield : MonoBehaviour
         if(Enemy.GetComponent<EnemyMovement>().enabled)
         {
             if (time >= 0) time -= Time.deltaTime;
-            else if (time < 0) Shield.SetActive(false);
+            if (time < 0) Shield.SetActive(false);
         }        
     }
 

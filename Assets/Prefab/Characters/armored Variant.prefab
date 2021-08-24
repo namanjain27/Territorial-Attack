@@ -4866,7 +4866,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170662418857991418}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -4983,7 +4983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403981af8c2f96c4aad1048789e6a053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 11
+  time: 6
   Shield: {fileID: 9170662418857991418}
   Enemy: {fileID: 17987998983955764}
 --- !u!1001 &9060805964131296301

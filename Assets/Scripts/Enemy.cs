@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 	public bool isDied = false;
 	public float die_time = 2f;
 	public bool cried = false;
+	public GameObject Player;
 
 	public void Damage(float damage)
 	{
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
 
 	void Start()
 	{
+		Player = GameObject.FindGameObjectWithTag("Target");
 		count = thundertime;
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
@@ -72,7 +74,14 @@ public class Enemy : MonoBehaviour
 		}
 		if (currentHealth <= 0)
 		{
-			m_Animator.Play("Enemy_Die");
+			if(Player.GetComponent<Player>().enemyCount==1)
+            {
+				Player.GetComponent<Triggered>().enabled = false;
+            }
+			isHit = false;
+			m_Animator.SetBool("IsHit", isHit);
+			m_Animator.SetBool("IsWalking", isHit);
+			m_Animator.SetBool("HasDied", true);
 			hero.GetComponent<EnemyMovement>().enabled = false;
 			hero.GetComponent<EnemyShoot>().enabled = false;
 			hero.GetComponent<CapsuleCollider2D>().enabled = false;

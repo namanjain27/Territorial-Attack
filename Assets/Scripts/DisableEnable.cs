@@ -32,21 +32,33 @@ public class DisableEnable : MonoBehaviour
     int presentScene;
 
     int end1=0, end2=0, end3=0;
+    int ballIncreased, shoeIncreased, stoneIncreased;
     float random;
     //disappearing each object in starting
     public void Start()
     {
         presentScene = SceneManager.GetActiveScene().buildIndex;
-        if(presentScene>=7)
+        if(presentScene>=6)
         {
-            ball += PlayerPrefs.GetInt("RemainingBall");
-            shoe += PlayerPrefs.GetInt("RemainingShoe");
-            stone += PlayerPrefs.GetInt("RemainingStone");
+            ballIncreased = PlayerPrefs.GetInt("RemainingBall");
+            shoeIncreased = PlayerPrefs.GetInt("RemainingShoe");
+            stoneIncreased = PlayerPrefs.GetInt("RemainingStone"); 
+
+            ball += ballIncreased;
+            shoe += shoeIncreased;
+            stone += stoneIncreased;
 
             PlayerPrefs.SetInt("RemainingStone", 0);
             PlayerPrefs.SetInt("RemainingShoe", 0);
-            PlayerPrefs.SetInt("RemainingBall",0);
+            PlayerPrefs.SetInt("RemainingBall", 0);
             PlayerPrefs.Save();
+
+            if (presentScene==6)
+            {
+                ball -= ballIncreased;
+                shoe -= shoeIncreased;
+                stone -= stoneIncreased;
+            }            
         }
         for (int i=0;i<3;i++)
         {
