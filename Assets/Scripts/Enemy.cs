@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour
 		if (collided.i != 0 && collided.i!=7)
 		{
 			isHit = true;
-			m_Animator.SetBool("IsHit", isHit);
+			//m_Animator.SetBool("IsHit", isHit);
 			HitAudio.Play();
 
 			Damage(collided.i * 10);
@@ -67,12 +68,24 @@ public class Enemy : MonoBehaviour
 				count= thundertime;
 			}
 		}
-		if (currentHealth <= 0)
-		{
-			if(Player.GetComponent<Player>().enemyCount==1)
+		if (SceneManager.GetActiveScene().buildIndex ==1)
+        {
+			if (currentHealth <= 0)
             {
-				Player.GetComponent<Triggered>().enabled = false;
-            }
+				hero.transform.GetChild(1).gameObject.SetActive(false);
+				hero.GetComponent<CapsuleCollider2D>().enabled = false;
+				m_Animator.SetBool("HasDied", true);
+				die_wait();
+				if(die_time<=0)
+				{
+					isDied = true;
+					hero.SetActive(false);
+				}
+			}
+
+		}
+		else if (currentHealth <= 0)
+		{
 			isHit = false;
 			m_Animator.SetBool("IsHit", isHit);
 			m_Animator.SetBool("IsWalking", isHit);

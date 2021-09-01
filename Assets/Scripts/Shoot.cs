@@ -116,12 +116,13 @@ public class Shoot : MonoBehaviour
         }
         if (other.gameObject == Hammer)
         {
-            HammerButton.GetComponent<AudioSource>().enabled = false;
             GameObject Stoneclone = Instantiate(other, HammerSprite.transform.position, HammerSprite.transform.rotation);
             Stoneclone.GetComponent<Rotation>().rotation = true;
             Stoneclone.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             float range = WindEffect;
-            WindEffect = Random.Range((float)(range * 0.5), (float)(range * 1.5));
+            float random = Random.Range(0, 1);
+            if (random < 0.5) WindEffect = (WindEffect / 2);
+            else WindEffect = (WindEffect * 2);
             if(LaunchForce>2000)
             {
                 Stoneclone.GetComponent<Rigidbody2D>().AddForce(transform.right * (2000 - WindEffect));
@@ -130,12 +131,10 @@ public class Shoot : MonoBehaviour
             {
                 Stoneclone.GetComponent<Rigidbody2D>().AddForce(transform.right * (LaunchForce - WindEffect));
             }            
-            //HammerButton.SetActive(false);
-            //HammerButton.SetActive(true);
         }
         else
         {
-            HammerButton.GetComponent<AudioSource>().enabled = false;
+            //HammerButton.GetComponent<AudioSource>().enabled = false;
             GameObject Stoneclone = Instantiate(other, transform.position, transform.rotation);
             Stoneclone.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             if (LaunchForce > 2000)
@@ -147,7 +146,7 @@ public class Shoot : MonoBehaviour
                 Stoneclone.GetComponent<Rigidbody2D>().AddForce(transform.right * (LaunchForce - WindEffect));
             }
         }
-        HammerButton.GetComponent<AudioSource>().volume = 0f;
+        //HammerButton.GetComponent<AudioSource>().volume = 0f;
         healthPotion.GetComponent<AudioSource>().volume = 0f;
         Shield.GetComponent<AudioSource>().volume = 0f;
         HammerSprite.SetActive(false);

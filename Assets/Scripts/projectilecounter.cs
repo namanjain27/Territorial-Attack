@@ -14,9 +14,12 @@ public class projectilecounter : MonoBehaviour
     public GameObject ballcount;
     public GameObject shoecount;
     public GameObject stonecount;
-    int countball=0;
-    int countshoe = 0;
-    int countstone = 0;
+    public int countball=0;
+    public int countshoe = 0;
+    public int  countstone = 0;
+    public int StartBall;
+    public int StartShoe;
+    public int StartStone;
 
     int presentScene;
 

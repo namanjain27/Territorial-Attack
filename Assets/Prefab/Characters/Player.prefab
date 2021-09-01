@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 4079520549543249565}
   - component: {fileID: 4079520549543249563}
   - component: {fileID: 4079520549543249562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -642,6 +642,7 @@ MonoBehaviour:
   hero: {fileID: 4079520548506183480}
   GameOverImage: {fileID: 0}
   NextLevelImage: {fileID: 0}
+  Warning: {fileID: 0}
   enemy: {fileID: 0}
   healthBar: {fileID: 4079520548506183478}
   trigger: {fileID: 0}
@@ -668,6 +669,9 @@ MonoBehaviour:
   MainPlayer: {fileID: 0}
   enemy_shoot: 1
   enemy_walk: 1
+  ab: 0
+  count: {fileID: 0}
+  EndTime: 1
 --- !u!82 &4079520549543249565
 AudioSource:
   m_ObjectHideFlags: 0

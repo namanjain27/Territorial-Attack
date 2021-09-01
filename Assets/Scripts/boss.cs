@@ -5,10 +5,10 @@ using UnityEngine;
 public class boss : MonoBehaviour
 {
     public GameObject bossShield;
-    
     public GameObject Boss;
     bool timed = true;
     public int CollidedCount=0;
+    float timer = 5f;
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,6 +41,7 @@ public class boss : MonoBehaviour
                  Boss.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().enabled = true;
                  Boss.GetComponent<EnemyShoot>().delayStart = 2f;
                  Boss.GetComponent<EnemyShoot>().delayEnd = 3f;
+                 timer -= Time.deltaTime;
             }
         }
         if (CollidedCount == 4){
@@ -51,5 +52,7 @@ public class boss : MonoBehaviour
             timed = false;
             bossShield.SetActive(false);
         }
+        if(timer< 5 && timer>0) Boss.transform.GetChild(5).gameObject.SetActive(true);
+        else Boss.transform.GetChild(5).gameObject.SetActive(false);
     }
 }

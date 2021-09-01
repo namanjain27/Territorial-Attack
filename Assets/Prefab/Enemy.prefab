@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1274153223588151118}
   - component: {fileID: 5008390912127410067}
   - component: {fileID: 6444741052503903288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SubEmitter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4815,7 +4815,7 @@ GameObject:
   - component: {fileID: 8296686341559399102}
   - component: {fileID: 4829916469083839283}
   - component: {fileID: 2864812523912917963}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: thunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9621,7 +9621,7 @@ GameObject:
   - component: {fileID: 9043673326909918363}
   - component: {fileID: 9043673326909918365}
   - component: {fileID: 9043673326909918364}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9696,7 +9696,7 @@ GameObject:
   - component: {fileID: 9043673327099501375}
   - component: {fileID: 9043673327099501361}
   - component: {fileID: 9043673327099501360}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9779,7 +9779,7 @@ GameObject:
   - component: {fileID: 9043673327249506578}
   - component: {fileID: 9043673327249506579}
   - component: {fileID: 2149112582160048063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10089,8 +10089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  TimeChange: 5
-  speedChange: 0.1
+  TimeChange: 4
+  speedChange: 0.5
   Stationary: {fileID: 9043673328013076222}
   Enemy: {fileID: 9043673327249506585}
   isWalking: 0
@@ -10201,7 +10201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9043673327255043242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10235,7 +10235,7 @@ GameObject:
   - component: {fileID: 9043673327350189496}
   - component: {fileID: 9043673327350189479}
   - component: {fileID: 9043673327350189478}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10334,7 +10334,7 @@ GameObject:
   - component: {fileID: 9043673327652970118}
   - component: {fileID: 9043673327652970136}
   - component: {fileID: 9043673327652970119}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10469,7 +10469,7 @@ GameObject:
   - component: {fileID: 9043673327859248633}
   - component: {fileID: 9043673327859248636}
   - component: {fileID: 9043673327859248635}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10550,7 +10550,7 @@ GameObject:
   - component: {fileID: 9043673327974374302}
   - component: {fileID: 9043673327974374288}
   - component: {fileID: 9043673327974374303}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10623,7 +10623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9043673328013076223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stationary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10658,7 +10658,7 @@ GameObject:
   - component: {fileID: 9043673328168865540}
   - component: {fileID: 9043673328168865539}
   - component: {fileID: 9043673328168865538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spr_shield
   m_TagString: Ground
   m_Icon: {fileID: 0}

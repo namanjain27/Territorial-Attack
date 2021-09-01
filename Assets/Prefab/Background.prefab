@@ -353,7 +353,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -422,6 +422,12 @@ MonoBehaviour:
   ballcount: {fileID: 5499615236810329923}
   shoecount: {fileID: 5499615235840101912}
   stonecount: {fileID: 5499615235354739290}
+  countball: 0
+  countshoe: 0
+  countstone: 0
+  StartBall: 0
+  StartShoe: 0
+  StartStone: 0
 --- !u!1 &5499615235354739290
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,8 +855,8 @@ MonoBehaviour:
   shield: {fileID: 0}
   tracer: {fileID: 0}
   presentScene: 0
-  hit: 0
   player: {fileID: 0}
+  hit: 0
 --- !u!68 &5499615235493483323
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2535,7 +2541,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -2646,6 +2652,10 @@ PrefabInstance:
     - target: {fileID: 6386738673765507604, guid: be158897fafab7d4c9949b181c236447, type: 3}
       propertyPath: m_RenderMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386738673765507604, guid: be158897fafab7d4c9949b181c236447, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6386738673765507605, guid: be158897fafab7d4c9949b181c236447, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -3714,6 +3724,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2816146307561085726, guid: 372a7a5e45a4ce24dbd77fea341e276c, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816146307561085726, guid: 372a7a5e45a4ce24dbd77fea341e276c, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
@@ -4301,7 +4315,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.35197508
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2816146306743058682, guid: 372a7a5e45a4ce24dbd77fea341e276c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 372a7a5e45a4ce24dbd77fea341e276c, type: 3}
 --- !u!224 &7729998638298899663 stripped
 RectTransform:
@@ -4430,6 +4445,10 @@ PrefabInstance:
     - target: {fileID: 8917190511367683581, guid: 1f0d8b95d3447e24ea7eba65681f8460, type: 3}
       propertyPath: m_RenderMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917190511367683581, guid: 1f0d8b95d3447e24ea7eba65681f8460, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917190511367683581, guid: 1f0d8b95d3447e24ea7eba65681f8460, type: 3}
       propertyPath: m_SortingOrder

@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject MainPlayer;
 
-    public GameObject pause;
+    public GameObject pause; // button
 
     public int coins;
 
@@ -26,6 +26,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject[] Stores;
 
     public GameObject Store;
+
+    public GameObject nozzle;
+
+    public GameObject warning;
+    public GameObject Tutorial;
 
 
     //float time = 1;
@@ -38,19 +43,21 @@ public class PauseMenu : MonoBehaviour
         if (presentScene >= 9) Powerups[2].SetActive(true);
         if (presentScene >= 10) Powerups[3].SetActive(true);        
         coins = PlayerPrefs.GetInt("totalCoins");
-        /*if (presentScene==2)
+        if (presentScene>=1)
         {
-            Pause();
-            PauseUI.SetActive(false);
-        }*/
-        if(presentScene>=6)  Pause();
+            Resume();
+        }
         PauseUI.SetActive(false);
         MainPlayer = GameObject.FindGameObjectWithTag("Target");
     }
     // Update is called once per frame
     void Update()
-    {if(Store.activeSelf)
+    {
+        powerslider.interactable = false;
+        if(Store.activeSelf)
         {
+            Pause();
+            PauseUI.SetActive(false);
             coins = PlayerPrefs.GetInt("totalCoins");
             if (coins < 5)
             {
@@ -97,11 +104,6 @@ public class PauseMenu : MonoBehaviour
                 Stores[2].GetComponent<Image>().color = tempColor;
             }
         }        
-        /*if (Error.activeSelf)
-        {
-            while (time > 0) time -= Time.deltaTime;
-            Error.SetActive(false);
-        }*/
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
@@ -120,6 +122,7 @@ public class PauseMenu : MonoBehaviour
         pause.SetActive(false);
         pause.SetActive(true);
         PauseUI.SetActive(false);
+        nozzle.GetComponent<Bow>().enabled = true;
         Time.timeScale = 1f;
         GameIsPaused = false;
         MainPlayer.GetComponent<TouchForce>().enabled = true;
@@ -136,6 +139,7 @@ public class PauseMenu : MonoBehaviour
         PauseUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        nozzle.GetComponent<Bow>().enabled = false;
         MainPlayer.GetComponent<TouchForce>().enabled = false;
         powerslider.interactable = false;
         for(int i=0;i<9;i++)
@@ -154,49 +158,31 @@ public class PauseMenu : MonoBehaviour
 
     public void Ball()
     {
-        /*if (coins<5)
-        {
-            Error.SetActive(true);
-            time = 1f;
-            return;
-        }*/
         if (Stores[0].GetComponent<Button>().enabled == false) return;
         MainPlayer.GetComponent<DisableEnable>().ball += 5;
+        warning.SetActive(false);
         coins = coins - 5;
         PlayerPrefs.SetInt("totalCoins", coins);
-        PlayerPrefs.SetInt("RemainingBall", MainPlayer.GetComponent<DisableEnable>().ball - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count1);
         PlayerPrefs.Save();
     }
 
     public void Shoe()
     {
-        /*if (coins < 10)
-        {
-            Error.SetActive(true);
-            time = 1f;
-            return;
-        }*/
         if (Stores[1].GetComponent<Button>().enabled == false) return;
         MainPlayer.GetComponent<DisableEnable>().shoe += 5;
+        warning.SetActive(false);
         coins = coins - 10;
         PlayerPrefs.SetInt("totalCoins", coins);
-        PlayerPrefs.SetInt("RemainingShoe", MainPlayer.GetComponent<DisableEnable>().shoe - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count2);
         PlayerPrefs.Save();
     }
 
     public void Stone()
     {
-        /*if (coins < 15)
-        {
-            Error.SetActive(true);
-            time = 1f;
-            return;
-        }*/
         if (Stores[2].GetComponent<Button>().enabled == false) return;
         MainPlayer.GetComponent<DisableEnable>().stone += 5;
+        warning.SetActive(false);
         coins = coins - 15;
         PlayerPrefs.SetInt("totalCoins", coins);
-        PlayerPrefs.SetInt("RemainingStone", MainPlayer.GetComponent<DisableEnable>().stone - MainPlayer.transform.GetChild(1).gameObject.GetComponent<Shoot>().count3);
         PlayerPrefs.Save();
     }
 }

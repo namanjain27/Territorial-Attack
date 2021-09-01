@@ -26,6 +26,9 @@ TagManager:
   - Shield
   - Boss
   - ninja
+  - ShoeCount
+  - StoneCount
+  - BallCount
   layers:
   - Default
   - TransparentFX
@@ -34,8 +37,8 @@ TagManager:
   - Water
   - UI
   - lever
-  - level_end
-  - 
+  - player
+  - enemy
   - 
   - 
   - 

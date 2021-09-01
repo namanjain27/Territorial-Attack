@@ -9,9 +9,9 @@ public class DisableEnable : MonoBehaviour
     public GameObject[] Projectile;
     //public GameObject volume;
     public GameObject HammerButton;
-    public int ball=3;
-    public int shoe=2;
-    public int stone=2;
+    public int ball=0;
+    public int shoe=0;
+    public int stone=0;
 
     public float delay = 2f;
 
@@ -38,20 +38,14 @@ public class DisableEnable : MonoBehaviour
     public void Start()
     {
         presentScene = SceneManager.GetActiveScene().buildIndex;
-        if(presentScene>=6)
+        if (presentScene == 2) ball = 18;
+        else if (presentScene == 3) shoe = 9;
+        else if (presentScene == 4) stone = 10;
+        else if(presentScene==5)
         {
-            ballIncreased = PlayerPrefs.GetInt("RemainingBall");
-            shoeIncreased = PlayerPrefs.GetInt("RemainingShoe");
-            stoneIncreased = PlayerPrefs.GetInt("RemainingStone"); 
-
-            ball += ballIncreased;
-            shoe += shoeIncreased;
-            stone += stoneIncreased;
-
-            PlayerPrefs.SetInt("RemainingStone", 0);
-            PlayerPrefs.SetInt("RemainingShoe", 0);
-            PlayerPrefs.SetInt("RemainingBall", 0);
-            PlayerPrefs.Save();           
+            ball = 10;
+            shoe = 10;
+            stone = 5;
         }
         for (int i=0;i<3;i++)
         {

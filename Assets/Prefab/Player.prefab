@@ -5462,7 +5462,7 @@ GameObject:
   - component: {fileID: 90502019216361200}
   m_Layer: 0
   m_Name: Hammer
-  m_TagString: Untagged
+  m_TagString: Hammer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10359,7 +10359,7 @@ GameObject:
   - component: {fileID: 90502019609807929}
   - component: {fileID: 3602409252900203043}
   - component: {fileID: 90502019609807904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -10459,6 +10459,7 @@ MonoBehaviour:
   hero: {fileID: 90502018509892993}
   GameOverImage: {fileID: 0}
   NextLevelImage: {fileID: 0}
+  Warning: {fileID: 0}
   enemy: {fileID: 0}
   healthBar: {fileID: 90502018509893007}
   trigger: {fileID: 5030788409637395547}
@@ -10485,6 +10486,9 @@ MonoBehaviour:
   MainPlayer: {fileID: 0}
   enemy_shoot: 0
   enemy_walk: 1
+  ab: 0
+  count: {fileID: 0}
+  EndTime: 1
 --- !u!114 &90502019609807911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10869,6 +10873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i: 0
   trigger: {fileID: 90502019609807932}
+  Count: 0
 --- !u!114 &90502019609807929
 MonoBehaviour:
   m_ObjectHideFlags: 0
