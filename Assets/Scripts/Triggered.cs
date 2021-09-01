@@ -6,6 +6,7 @@ public class Triggered : MonoBehaviour
 {
     public int i = 0;
     public GameObject trigger;
+    public int Count=0;
     //public float shield_timer = 10f;
 
     void Start()
@@ -28,6 +29,7 @@ public class Triggered : MonoBehaviour
         {
             i = 3;
         }
+        if (i != 0) Count += 1;
     }
 
     public void Shield()

@@ -359,6 +359,7 @@ MonoBehaviour:
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
   fill: {fileID: 4079520548266467896}
+  maxHealth: 0
 --- !u!1 &4079520548596271990
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,13 +461,26 @@ MonoBehaviour:
   Stone1: {fileID: 1099091074001910814, guid: 3702fa283b1510e47a50a94606988aad, type: 3}
   Stone2: {fileID: 658006034996980400, guid: df5865f83373d0541bc677d813227982, type: 3}
   Stone3: {fileID: 2572607105382205931, guid: 67585de52062976468e35dfe5500bca5, type: 3}
+  count: 0
+  Time_Difference: 0
+  decreaseForce: 300
+  WindEffect: 0
+  Ground: {fileID: 0}
+  count1: 0
+  count2: 0
+  count3: 0
   enable: {fileID: 0}
+  HammerSprite: {fileID: 0}
   HammerButton: {fileID: 0}
   Hammer: {fileID: 0}
   hero: {fileID: 4079520549543249541}
+  tracer: {fileID: 0}
+  healthPotion: {fileID: 0}
+  Shield: {fileID: 0}
   shoot: {fileID: 0}
   pressed_shoot: 0
   LaunchForce: 0
+  force: {fileID: 0}
   shot: 0
 --- !u!1 &4079520549543249541
 GameObject:
@@ -484,7 +498,7 @@ GameObject:
   - component: {fileID: 4079520549543249565}
   - component: {fileID: 4079520549543249563}
   - component: {fileID: 4079520549543249562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -570,19 +584,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cc9600120e5d340b7416f359c09519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object1: {fileID: 4079520548731889553}
-  Object2: {fileID: 4079520549664329062}
-  Object3: {fileID: 4079520548743660789}
+  Projectile: []
   HammerButton: {fileID: 0}
   ball: 4
   shoe: 3
   stone: 2
-  appears1: 0
-  appears2: 0
-  appears3: 0
+  delay: 2
+  shoot: {fileID: 0}
+  activated: 0
+  active: 
   TennisBall: {fileID: 0}
   stones: {fileID: 0}
   shoes: {fileID: 0}
+  GameEnd: {fileID: 0}
 --- !u!50 &4079520549543249537
 Rigidbody2D:
   serializedVersion: 4
@@ -618,23 +632,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  presentScene: 0
   Hit: {fileID: 0}
   slider: {fileID: 0}
   shoot: {fileID: 0}
+  ProjectileButton: {fileID: 0}
   enemyCount: 0
+  MainEnemy: 0
   hero: {fileID: 4079520548506183480}
   GameOverImage: {fileID: 0}
   NextLevelImage: {fileID: 0}
+  Warning: {fileID: 0}
   enemy: {fileID: 0}
   healthBar: {fileID: 4079520548506183478}
   trigger: {fileID: 0}
-  timer: {fileID: 0}
+  crackers: {fileID: 0}
+  coins: 0
+  timed: 3
+  enemy_num: 1
+  time_ul: 17
+  time_ll: 8
+  secondsLeft: 0
+  time_over: 1
+  healthPotion: {fileID: 0}
+  reached_lever: 0
+  Pause: {fileID: 0}
   HitAudio: {fileID: 4079520549543249565}
-  GameOverAudio: {fileID: 0}
-  collided: {fileID: 0}
+  enemy_order: []
   Hits: 0
   Number: {fileID: 0}
+  enemy_left: {fileID: 0}
   IsDead: 0
+  MainAudio: {fileID: 0}
+  GameOverAudio: {fileID: 0}
+  GameWinAudio: {fileID: 0}
+  MainPlayer: {fileID: 0}
+  enemy_shoot: 1
+  enemy_walk: 1
+  ab: 0
+  count: {fileID: 0}
+  EndTime: 1
 --- !u!82 &4079520549543249565
 AudioSource:
   m_ObjectHideFlags: 0
@@ -647,7 +684,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02ee06942191ab4a8a6f23927b6e917, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -953,11 +990,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 598ceb1301b7a874d99d5000336e9c85, type: 3}
---- !u!1 &4079520549664329062 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3996113923849370223, guid: 598ceb1301b7a874d99d5000336e9c85, type: 3}
-  m_PrefabInstance: {fileID: 1146256412786997001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4079520549664329065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3996113923849370208, guid: 598ceb1301b7a874d99d5000336e9c85, type: 3}
@@ -1020,11 +1052,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e29fed676d56ab4e92834657bebd446, type: 3}
---- !u!1 &4079520548731889553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1011036033040665765, guid: 1e29fed676d56ab4e92834657bebd446, type: 3}
-  m_PrefabInstance: {fileID: 3934657032741743412}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4079520548731889552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1011036033040665764, guid: 1e29fed676d56ab4e92834657bebd446, type: 3}
@@ -1087,11 +1114,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671974e68bacce74cb643f877153f2ba, type: 3}
---- !u!1 &4079520548743660789 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 521542785170851453, guid: 671974e68bacce74cb643f877153f2ba, type: 3}
-  m_PrefabInstance: {fileID: 4585150634390651528}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4079520548743660786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 521542785170851450, guid: 671974e68bacce74cb643f877153f2ba, type: 3}

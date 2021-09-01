@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DisableEnable : MonoBehaviour
 {
@@ -8,9 +9,9 @@ public class DisableEnable : MonoBehaviour
     public GameObject[] Projectile;
     //public GameObject volume;
     public GameObject HammerButton;
-    public int ball=3;
-    public int shoe=2;
-    public int stone=2;
+    public int ball=0;
+    public int shoe=0;
+    public int stone=0;
 
     public float delay = 2f;
 
@@ -28,15 +29,31 @@ public class DisableEnable : MonoBehaviour
 
     public Player GameEnd;
 
+    int presentScene;
+
     int end1=0, end2=0, end3=0;
+    int ballIncreased, shoeIncreased, stoneIncreased;
     float random;
     //disappearing each object in starting
     public void Start()
     {
-        for(int i=0;i<3;i++)
+        presentScene = SceneManager.GetActiveScene().buildIndex;
+        if (presentScene == 2) ball = 18;
+        else if (presentScene == 3) shoe = 9;
+        else if (presentScene == 4) stone = 10;
+        else if(presentScene==5)
+        {
+            ball = 10;
+            shoe = 10;
+            stone = 5;
+        }
+        for (int i=0;i<3;i++)
         {
             Projectile[i].SetActive(false);
         }
+        if (ball > 0) TennisBall.SetActive(true);
+        if (shoe > 0) shoes.SetActive(true);
+        if (stone > 0) stones.SetActive(true);
     }
 
     public void Disappear(bool activated,int i)
@@ -58,6 +75,9 @@ public class DisableEnable : MonoBehaviour
     public void Update()
     {
         random = Random.Range(0, 1);
+        if (ball > 0) TennisBall.SetActive(true);
+        if (shoe > 0) shoes.SetActive(true);
+        if (stone > 0) stones.SetActive(true);
         if (HammerButton.activeSelf) Disappear(false, 1);
         else
         {
@@ -137,11 +157,11 @@ public class DisableEnable : MonoBehaviour
                 }
             }
         }
-        if (shoot.count1 >= ball && shoot.count2 >= shoe && shoot.count3 >= stone)
+        /*if (shoot.count1 >= ball && shoot.count2 >= shoe && shoot.count3 >= stone)
         {
             delay -= Time.deltaTime;
             if (delay < 0) GameEnd.DestroyObject(); 
-        }
+        }*/
     }
     public void Inactive1()
     {

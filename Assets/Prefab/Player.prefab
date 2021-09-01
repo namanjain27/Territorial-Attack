@@ -5462,7 +5462,7 @@ GameObject:
   - component: {fileID: 90502019216361200}
   m_Layer: 0
   m_Name: Hammer
-  m_TagString: Untagged
+  m_TagString: Hammer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5475,8 +5475,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90502019216361202}
   m_LocalRotation: {x: 0, y: 0, z: -0.68071955, w: 0.7325442}
-  m_LocalPosition: {x: 4.12, y: -0.03, z: 0}
-  m_LocalScale: {x: 2.0038507, y: 1.1612425, z: 1.2647}
+  m_LocalPosition: {x: 2.276, y: 0.931, z: 0}
+  m_LocalScale: {x: 1.7653924, y: 1.0184096, z: 1.2647}
   m_Children: []
   m_Father: {fileID: 90502017622868430}
   m_RootOrder: 3
@@ -10346,9 +10346,9 @@ GameObject:
   m_Component:
   - component: {fileID: 90502019609807930}
   - component: {fileID: 90502019609807931}
+  - component: {fileID: 90502019609807910}
   - component: {fileID: 90502019609807911}
   - component: {fileID: 90502019609807928}
-  - component: {fileID: 90502019609807910}
   - component: {fileID: 90502019609807908}
   - component: {fileID: 90502019609807906}
   - component: {fileID: 90502019609807907}
@@ -10359,7 +10359,7 @@ GameObject:
   - component: {fileID: 90502019609807929}
   - component: {fileID: 3602409252900203043}
   - component: {fileID: 90502019609807904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -10435,6 +10435,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &90502019609807910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90502019609807932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a703563e50986724c9c16b3c7fab3ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  presentScene: 0
+  Hit: {fileID: 0}
+  slider: {fileID: 0}
+  shoot: {fileID: 0}
+  ProjectileButton: {fileID: 0}
+  enemyCount: 0
+  MainEnemy: 0
+  hero: {fileID: 90502018509892993}
+  GameOverImage: {fileID: 0}
+  NextLevelImage: {fileID: 0}
+  Warning: {fileID: 0}
+  enemy: {fileID: 0}
+  healthBar: {fileID: 90502018509893007}
+  trigger: {fileID: 5030788409637395547}
+  crackers: {fileID: 0}
+  coins: 0
+  timed: 3
+  enemy_num: 0
+  time_ul: 18
+  time_ll: 9
+  secondsLeft: 0
+  time_over: 1
+  healthPotion: {fileID: 0}
+  reached_lever: 0
+  Pause: {fileID: 0}
+  HitAudio: {fileID: 90502019609807908}
+  enemy_order: []
+  Hits: 0
+  Number: {fileID: 0}
+  enemy_left: {fileID: 0}
+  IsDead: 0
+  MainAudio: {fileID: 0}
+  GameOverAudio: {fileID: 0}
+  GameWinAudio: {fileID: 0}
+  MainPlayer: {fileID: 0}
+  enemy_shoot: 0
+  enemy_walk: 1
+  ab: 0
+  count: {fileID: 0}
+  EndTime: 1
 --- !u!114 &90502019609807911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10484,46 +10538,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &90502019609807910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90502019609807932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a703563e50986724c9c16b3c7fab3ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  presentScene: 0
-  Hit: {fileID: 0}
-  slider: {fileID: 0}
-  shoot: {fileID: 0}
-  ProjectileButton: {fileID: 0}
-  enemyCount: 0
-  MainEnemy: 0
-  hero: {fileID: 90502018509892993}
-  GameOverImage: {fileID: 0}
-  NextLevelImage: {fileID: 0}
-  enemy: {fileID: 0}
-  healthBar: {fileID: 90502018509893007}
-  trigger: {fileID: 5030788409637395547}
-  timer: {fileID: 0}
-  healthPotion: {fileID: 0}
-  reached_lever: 0
-  Pause: {fileID: 0}
-  HitAudio: {fileID: 90502019609807908}
-  hits_clone: []
-  Hits: 0
-  Number: {fileID: 0}
-  IsDead: 0
-  MainAudio: {fileID: 0}
-  GameOverAudio: {fileID: 0}
-  GameWinAudio: {fileID: 0}
-  MainPlayer: {fileID: 0}
 --- !u!82 &90502019609807908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10536,7 +10550,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02ee06942191ab4a8a6f23927b6e917, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10859,6 +10873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i: 0
   trigger: {fileID: 90502019609807932}
+  Count: 0
 --- !u!114 &90502019609807929
 MonoBehaviour:
   m_ObjectHideFlags: 0

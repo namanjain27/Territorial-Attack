@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1274153223588151118}
   - component: {fileID: 5008390912127410067}
   - component: {fileID: 6444741052503903288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SubEmitter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4815,7 +4815,7 @@ GameObject:
   - component: {fileID: 8296686341559399102}
   - component: {fileID: 4829916469083839283}
   - component: {fileID: 2864812523912917963}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: thunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9621,7 +9621,7 @@ GameObject:
   - component: {fileID: 9043673326909918363}
   - component: {fileID: 9043673326909918365}
   - component: {fileID: 9043673326909918364}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9696,7 +9696,7 @@ GameObject:
   - component: {fileID: 9043673327099501375}
   - component: {fileID: 9043673327099501361}
   - component: {fileID: 9043673327099501360}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9778,7 +9778,8 @@ GameObject:
   - component: {fileID: 9043673327249506577}
   - component: {fileID: 9043673327249506578}
   - component: {fileID: 9043673327249506579}
-  m_Layer: 0
+  - component: {fileID: 2149112582160048063}
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9896,7 +9897,10 @@ MonoBehaviour:
   healthBar: {fileID: 9043673327652970119}
   collided: {fileID: 9043673327249506576}
   HitAudio: {fileID: 9043673327249506577}
+  thunder_audio: {fileID: 2149112582160048063}
   isDied: 0
+  die_time: 2
+  Player: {fileID: 0}
 --- !u!114 &9043673327249506591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9957,7 +9961,6 @@ MonoBehaviour:
   i: 0
   HitCount: 0
   enemythunder: {fileID: 0}
-  Costs: {fileID: 0}
 --- !u!82 &9043673327249506577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9970,7 +9973,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02ee06942191ab4a8a6f23927b6e917, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10086,13 +10089,109 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  TimeChange: 5
-  speedChange: 0.1
+  TimeChange: 4
+  speedChange: 0.5
   Stationary: {fileID: 9043673328013076222}
   Enemy: {fileID: 9043673327249506585}
   isWalking: 0
   enemy: {fileID: 9043673327249506590}
   timer: 0
+--- !u!82 &2149112582160048063
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043673327249506585}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 030461af4a2cccd42b517df5b5d9ed58, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9043673327255043241
 GameObject:
   m_ObjectHideFlags: 0
@@ -10102,7 +10201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9043673327255043242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10136,7 +10235,7 @@ GameObject:
   - component: {fileID: 9043673327350189496}
   - component: {fileID: 9043673327350189479}
   - component: {fileID: 9043673327350189478}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10235,7 +10334,7 @@ GameObject:
   - component: {fileID: 9043673327652970118}
   - component: {fileID: 9043673327652970136}
   - component: {fileID: 9043673327652970119}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10370,7 +10469,7 @@ GameObject:
   - component: {fileID: 9043673327859248633}
   - component: {fileID: 9043673327859248636}
   - component: {fileID: 9043673327859248635}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10451,7 +10550,7 @@ GameObject:
   - component: {fileID: 9043673327974374302}
   - component: {fileID: 9043673327974374288}
   - component: {fileID: 9043673327974374303}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10524,7 +10623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9043673328013076223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stationary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10559,7 +10658,7 @@ GameObject:
   - component: {fileID: 9043673328168865540}
   - component: {fileID: 9043673328168865539}
   - component: {fileID: 9043673328168865538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spr_shield
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -15430,8 +15529,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c8370bba39055764282e470061c1c007, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_PlayOnAwake: 0
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0

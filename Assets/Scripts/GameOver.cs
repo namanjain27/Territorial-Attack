@@ -10,6 +10,16 @@ public class GameOver : MonoBehaviour
     public GameObject slider;
     public GameObject shoot;
     public GameObject pause;
+    public GameObject MainPlayer;
+
+    public int presentScene;
+
+    public projectilecounter counter;
+
+    private void Start()
+    {
+        presentScene = SceneManager.GetActiveScene().buildIndex;
+    }
     public void RestartButton ()
     {
         pause.SetActive(false);
@@ -22,12 +32,16 @@ public class GameOver : MonoBehaviour
 
     public void MainMenuButton ()
     {
-        SceneManager.LoadScene("mainMenu");
+        MainPlayer.GetComponent<Player>().SaveCoins();
+        SceneManager.LoadScene(0);
+        //StartCoroutine(MainMenu(1));
     }
 
     public void ExitButton ()
     {
-        Application.Quit ();
+        MainPlayer.GetComponent<Player>().SaveCoins();
+        Application.Quit();
+        //StartCoroutine(ExitGame(1));
     }
 
     public void NextLevel()
@@ -37,4 +51,26 @@ public class GameOver : MonoBehaviour
         slider.SetActive(true);
         shoot.SetActive(true);
     }
+
+    /*IEnumerator ExitGame(int seconds)
+    {
+        int counter = seconds;
+        while (counter > 0)
+        {
+            yield return new WaitForSeconds(1);
+            counter--;
+        }
+        Application.Quit();
+    }
+
+    IEnumerator MainMenu(int seconds)
+    {
+        int counter = seconds;
+        while (counter > 0)
+        {
+            yield return new WaitForSeconds(1);
+            counter--;
+        }
+        SceneManager.LoadScene(0);
+    }*/
 }
