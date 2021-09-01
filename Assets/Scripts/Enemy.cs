@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 
 	public float maxHealth = 100;
 	public float currentHealth;
-	public float thundertime=1;
+	public float thundertime=0.5f;
 	public bool isHit = false;
 	float count;
 	public GameObject hero;
@@ -59,11 +59,11 @@ public class Enemy : MonoBehaviour
 		}
 		if(collided.i==7)
 		{
+			Damage(collided.i * 10);
 			count -= Time.deltaTime;
 			if(count<0)
             {
 				thunder_audio.Play();
-				Damage(collided.i * 10);
 				collided.i = 0;
 				count= thundertime;
 			}
