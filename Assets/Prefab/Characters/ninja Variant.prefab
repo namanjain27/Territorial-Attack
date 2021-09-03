@@ -4998,7 +4998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403981af8c2f96c4aad1048789e6a053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 6
+  time: 5
   Shield: {fileID: 2187396348435035839}
   Enemy: {fileID: 7865907683259069780}
 --- !u!1001 &1200426613553886285

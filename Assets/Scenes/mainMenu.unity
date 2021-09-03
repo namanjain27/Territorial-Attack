@@ -987,7 +987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -118.4, y: -325}
+  m_AnchoredPosition: {x: -118.3999, y: -325}
   m_SizeDelta: {x: 176.013, y: 180.74597}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141002575
@@ -1529,10 +1529,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 127049182}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1324800102}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: deactivating
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1541,10 +1541,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1324800102}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: deactivating
-        m_Mode: 1
+      - m_Target: {fileID: 127049182}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5832,7 +5832,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ab29bca60cd81449c034c4a1a7adfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelButtons: []
+  LevelButtons:
+  - {fileID: 1475486615}
+  - {fileID: 2108854846}
+  - {fileID: 1724614827}
+  - {fileID: 644632320}
+  - {fileID: 683447412}
+  - {fileID: 663370746}
+  - {fileID: 596471576}
+  - {fileID: 1159397827}
+  - {fileID: 61290734}
+  - {fileID: 1495939029}
+  - {fileID: 1713952273}
+  - {fileID: 1403119057}
 --- !u!114 &1324800103
 MonoBehaviour:
   m_ObjectHideFlags: 0

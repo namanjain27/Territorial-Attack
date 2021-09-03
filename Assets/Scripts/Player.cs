@@ -205,19 +205,7 @@ public class Player : MonoBehaviour
 				enemyCount -= 1;
 			}
 		}
-				/*for ( i = 0; i < enemy_num; i++)
-                {
-					enemy_order[i].GetComponent<Enemy>().isDied = false;
-				}
-				enemy.isDied = false;
-					enemyCount -= 1;*/
-			
-        
-		/*if (enemy.isDied)
-        {
-			enemy.isDied = false;
-			enemyCount -= 1; //counts the enemies left to win that level 
-		}*/
+		
 		if (enemyCount == 0) {
 			if(timed==3f)
             {
@@ -252,16 +240,22 @@ public class Player : MonoBehaviour
 			if (gameObject.GetComponent<Triggered>().Count == 0)
 			{
 				LevelScore += ((presentScene - 1) *5);
-				NextLevelImage.transform.GetChild(4).gameObject.SetActive(true);
-				NextLevelImage.transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = ((presentScene - 1) * 5).ToString();
+				if(presentScene != 13)
+				{
+				 NextLevelImage.transform.GetChild(4).gameObject.SetActive(true);
+				 NextLevelImage.transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = ((presentScene - 1) * 5).ToString();
+				}
 			}
 			else if(gameObject.GetComponent<Triggered>().Count==1 )
             {
 				if (presentScene >= 8)
 				{
 					LevelScore += ((presentScene - 1) * 3);
-					NextLevelImage.transform.GetChild(5).gameObject.SetActive(true);
-					NextLevelImage.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = ((presentScene - 1) * 3).ToString();
+					if(presentScene != 13)
+					{
+					 NextLevelImage.transform.GetChild(5).gameObject.SetActive(true);
+					 NextLevelImage.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = ((presentScene - 1) * 3).ToString();
+					}
 				}
 			}
 			else if (gameObject.GetComponent<Triggered>().Count == 2)
@@ -269,8 +263,11 @@ public class Player : MonoBehaviour
 				if (presentScene >= 8)
 				{
 					LevelScore += ((presentScene - 1) * 2);
-					NextLevelImage.transform.GetChild(6).gameObject.SetActive(true);
-					NextLevelImage.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = ((presentScene - 1) * 2).ToString();
+					if(presentScene != 13)
+					{
+					 NextLevelImage.transform.GetChild(6).gameObject.SetActive(true);
+					 NextLevelImage.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = ((presentScene - 1) * 2).ToString();
+					}
 				}
 			}
 		}
@@ -282,7 +279,14 @@ public class Player : MonoBehaviour
 		NextLevelImage.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Coins earned -" + LevelScore.ToString();
 		coins = coins + (LevelScore);
 		PlayerPrefs.SetInt("totalCoins", coins);
-		if(PlayerPrefs.GetInt("levelReached")<presentScene) PlayerPrefs.SetInt("levelReached", presentScene);
+		if(PlayerPrefs.GetInt("levelReached")<presentScene)
+        {
+			if (presentScene == 13)
+			{
+				PlayerPrefs.SetInt("levelReached", (presentScene - 1));
+			}
+			else PlayerPrefs.SetInt("levelReached", presentScene);
+		}
 		PlayerPrefs.Save();
 	}
 
