@@ -40,10 +40,10 @@ public class DisableEnable : MonoBehaviour
         presentScene = SceneManager.GetActiveScene().buildIndex;
         if (presentScene == 2) ball = 18;
         else if (presentScene == 3) shoe = 9;
-        else if (presentScene == 4) stone = 10;
+        else if (presentScene == 4) stone = 11;
         else if(presentScene==5)
         {
-            ball = 10;
+            ball = 11;
             shoe = 10;
             stone = 5;
         }
