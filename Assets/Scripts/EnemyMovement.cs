@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     int presentScene;
     float t = 0;
     public float TimeChange=1f;
-    public float speedChange =0.5f;
+    public float speedChange =0.2f;
     public GameObject Stationary;
     public GameObject Enemy;
     Vector3 move;
@@ -22,11 +22,12 @@ public class EnemyMovement : MonoBehaviour
     {
         presentScene = SceneManager.GetActiveScene().buildIndex;
         timer = TimeChange;
+        if(presentScene>=10) TimeChange = 1.2f;
         m_Animator = GetComponent<Animator>();
         Stationary.transform.position = Enemy.transform.position;
         Stationary.transform.rotation = Enemy.transform.rotation;
-        if(presentScene>=5) speed  = 1.8f;
-        else speed  = 1.4f;
+        if(presentScene>=6) speed  = 1.5f;
+        else speed  = 1.3f;
     }
 
     void FixedUpdate()
@@ -37,8 +38,11 @@ public class EnemyMovement : MonoBehaviour
             if (timer <= 0)
             {
                 speed += speedChange;
-                if (speed > 4) speed = 4;
                 timer = TimeChange;
+                if (gameObject.CompareTag("Enemy"))
+                {
+                    if(speed>3.5f) speed = 3.5f;
+                }
                 if (gameObject.CompareTag("ninja")){
                     speed = Random.Range(-1f, 3.8f);
                 }
@@ -47,8 +51,10 @@ public class EnemyMovement : MonoBehaviour
         if (gameObject.CompareTag("Boss"))
         {
             speedChange = 0.1f;
-            speed = Random.Range(1.0f, 2.0f);
         }
+        else if(presentScene==9 || presentScene==10 ) speedChange = 0.28f;
+        else if(presentScene > 10) speedChange = 0.33f;
+        else speedChange = 0.2f;
         t = -1;
         isWalking = !Mathf.Approximately(t, 0f);
         m_Animator.SetBool("IsWalking", isWalking);

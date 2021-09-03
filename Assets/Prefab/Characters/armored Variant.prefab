@@ -4983,7 +4983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403981af8c2f96c4aad1048789e6a053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 6
+  time: 5
   Shield: {fileID: 9170662418857991418}
   Enemy: {fileID: 17987998983955764}
 --- !u!1001 &9060805964131296301
@@ -5031,7 +5031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506579, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: speedChange
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9043673327249506585, guid: f2ad779b40f1b6c45915c7eeea5a5774, type: 3}
       propertyPath: m_Name

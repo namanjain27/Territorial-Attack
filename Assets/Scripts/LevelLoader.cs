@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public GameObject[] LevelButtons;
+    public GameObject[] LevelButtons;//no need to give refrencing to this array. find with tag will work. 
 
     void Start()
     {
         int levelReached=PlayerPrefs.GetInt("levelReached",0);
-
-        LevelButtons = GameObject.FindGameObjectsWithTag("LevelLoaderButton");
+    
+        //LevelButtons = GameObject.FindGameObjectsWithTag("LevelLoaderButton");
         for (int i = 0; i < levelReached; i++)
         {
             LevelButtons[i].GetComponent<Button>().interactable = true;
@@ -24,7 +24,8 @@ public class LevelLoader : MonoBehaviour
 
     public void deactivating(){
         int levelReached=PlayerPrefs.GetInt("levelReached",0);
-        for (int i = 0; i < levelReached; i++)
+        if(levelReached == 13) levelReached = 12; // very imp
+        for (int i = 0; i < levelReached; i++)  // if you win level n, then levelreached == n+1 that is = build index 
         {
             LevelButtons[i].GetComponent<Button>().interactable = false;
             LevelButtons[i].GetComponent<Image>().enabled = true;

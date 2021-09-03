@@ -51,7 +51,6 @@ public class Enemy : MonoBehaviour
 		if (collided.i != 0 && collided.i!=7)
 		{
 			isHit = true;
-			//m_Animator.SetBool("IsHit", isHit);
 			HitAudio.Play();
 
 			Damage(collided.i * 10);
@@ -59,12 +58,15 @@ public class Enemy : MonoBehaviour
 		}
 		if(collided.i==7)
 		{
-			Damage(collided.i * 10);
+			
 			count -= Time.deltaTime;
+			//thunder_audio.Play();
+			//count= thundertime;
 			if(count<0)
             {
-				thunder_audio.Play();
+				Damage(collided.i * 10);
 				collided.i = 0;
+				thunder_audio.Play();
 				count= thundertime;
 			}
 		}

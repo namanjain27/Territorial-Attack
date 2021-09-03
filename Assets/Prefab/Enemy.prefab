@@ -10090,7 +10090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   TimeChange: 4
-  speedChange: 0.5
+  speedChange: 0.2
   Stationary: {fileID: 9043673328013076222}
   Enemy: {fileID: 9043673327249506585}
   isWalking: 0
