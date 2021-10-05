@@ -38,14 +38,14 @@ public class DisableEnable : MonoBehaviour
     public void Start()
     {
         presentScene = SceneManager.GetActiveScene().buildIndex;
-        if (presentScene == 2) ball = 18;
-        else if (presentScene == 3) shoe = 9;
-        else if (presentScene == 4) stone = 11;
+        if (presentScene == 2) ball = 20;
+        else if (presentScene == 3) shoe = 12;
+        else if (presentScene == 4) stone = 16;
         else if(presentScene==5)
         {
-            ball = 11;
-            shoe = 10;
-            stone = 5;
+            ball = 17;
+            shoe = 13;
+            stone = 10;
         }
         for (int i=0;i<3;i++)
         {
