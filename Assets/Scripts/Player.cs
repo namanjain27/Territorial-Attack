@@ -235,11 +235,11 @@ public class Player : MonoBehaviour
 		LevelScore = Hits ;
 		if(presentScene>=3)
         {
-			LevelScore += (presentScene - 1) * 5;
+			LevelScore += (presentScene - 1) * 6;
 			LevelScore += Hits;
 			if (gameObject.GetComponent<Triggered>().Count == 0)
 			{
-				LevelScore += ((presentScene - 1) *5);
+				LevelScore += ((presentScene - 1) *6);
 				if(presentScene != 13)
 				{
 				NextLevelImage.transform.GetChild(4).gameObject.SetActive(true);
@@ -250,7 +250,7 @@ public class Player : MonoBehaviour
             {
 				if (presentScene >= 8)
 				{
-					LevelScore += ((presentScene - 1) * 3);
+					LevelScore += ((presentScene - 1) * 4);
 					if(presentScene != 13)
 					{
 					NextLevelImage.transform.GetChild(5).gameObject.SetActive(true);
